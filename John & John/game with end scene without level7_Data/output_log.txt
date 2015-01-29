@@ -1,0 +1,68 @@
+Initialize engine version: 4.3.4f1 (e444f76e01cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1059]
+    Renderer: ATI Radeon HD 3800 Series
+    Vendor:   ATI
+    VRAM:     1400 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=0 RAWZ=0 NULL=0 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\ProBuilderCore.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\ProBuilderCore.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\SixBySeven.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\SixBySeven.dll into Unity Child Domain
+- Completed reload, in  0.545 seconds
+desktop: 1280x1024 60Hz; virtual: 2560x1024 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene without level7_Data\Managed\Boo.Lang.dll (this message is harmless)
+UnloadTime: 4.135550 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2061.
+Total: 6.811947 ms (FindLiveObjects: 0.130555 ms CreateObjectMapping: 0.036094 ms MarkObjects: 2.397621 ms  DeleteObjects: 3.436692 ms)
+
+1
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+1
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 9.843532 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 198 unused Assets to reduce memory usage. Loaded Objects now: 1539.
+Total: 2.897957 ms (FindLiveObjects: 0.120956 ms CreateObjectMapping: 0.041086 ms MarkObjects: 1.239897 ms  DeleteObjects: 0.784487 ms)
+
+UnloadTime: 1.990977 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 276 unused Assets to reduce memory usage. Loaded Objects now: 2412.
+Total: 10.652596 ms (FindLiveObjects: 0.183930 ms CreateObjectMapping: 0.048766 ms MarkObjects: 4.664302 ms  DeleteObjects: 4.994532 ms)
+
+3
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+3
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 3.674381 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 333 unused Assets to reduce memory usage. Loaded Objects now: 392.
+Total: 9.005286 ms (FindLiveObjects: 0.038014 ms CreateObjectMapping: 0.031871 ms MarkObjects: 0.271863 ms  DeleteObjects: 7.725070 ms)
+
