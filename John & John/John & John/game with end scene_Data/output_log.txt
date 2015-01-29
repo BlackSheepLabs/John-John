@@ -1,0 +1,133 @@
+Initialize engine version: 4.3.4f1 (e444f76e01cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1059]
+    Renderer: ATI Radeon HD 3800 Series
+    Vendor:   ATI
+    VRAM:     1400 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=0 RAWZ=0 NULL=0 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\ProBuilderCore.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\ProBuilderCore.dll into Unity Child Domain
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\SixBySeven.dll (this message is harmless)
+Loading C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\SixBySeven.dll into Unity Child Domain
+- Completed reload, in  0.865 seconds
+desktop: 1280x1024 60Hz; virtual: 2560x1024 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\ebw3559\Desktop\John & John\game with end scene_Data\Managed\Boo.Lang.dll (this message is harmless)
+UnloadTime: 0.957666 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 2061.
+Total: 8.900842 ms (FindLiveObjects: 0.183546 ms CreateObjectMapping: 0.041854 ms MarkObjects: 2.762409 ms  DeleteObjects: 4.985316 ms)
+
+1
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+1
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 3.233946 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 198 unused Assets to reduce memory usage. Loaded Objects now: 1539.
+Total: 2.916388 ms (FindLiveObjects: 0.130171 ms CreateObjectMapping: 0.036478 ms MarkObjects: 1.203802 ms  DeleteObjects: 0.810214 ms)
+
+UnloadTime: 1.930307 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 276 unused Assets to reduce memory usage. Loaded Objects now: 2412.
+Total: 9.855052 ms (FindLiveObjects: 0.202745 ms CreateObjectMapping: 0.047998 ms MarkObjects: 4.560625 ms  DeleteObjects: 4.261114 ms)
+
+3
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+3
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 2.897189 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 319 unused Assets to reduce memory usage. Loaded Objects now: 1453.
+Total: 4.541042 ms (FindLiveObjects: 0.139003 ms CreateObjectMapping: 0.049918 ms MarkObjects: 1.507536 ms  DeleteObjects: 1.982914 ms)
+
+4
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+4
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 1.708362 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 237 unused Assets to reduce memory usage. Loaded Objects now: 1692.
+Total: 8.447736 ms (FindLiveObjects: 0.105212 ms CreateObjectMapping: 0.046078 ms MarkObjects: 2.206395 ms  DeleteObjects: 5.314778 ms)
+
+5
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+5
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 3.275801 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 91 unused Assets to reduce memory usage. Loaded Objects now: 1543.
+Total: 2.237498 ms (FindLiveObjects: 0.074877 ms CreateObjectMapping: 0.052606 ms MarkObjects: 0.868580 ms  DeleteObjects: 0.511856 ms)
+
+6
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+6
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 2.013633 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 181 unused Assets to reduce memory usage. Loaded Objects now: 2011.
+Total: 4.748779 ms (FindLiveObjects: 0.125180 ms CreateObjectMapping: 0.067581 ms MarkObjects: 2.039360 ms  DeleteObjects: 1.659980 ms)
+
+7
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+7
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+laksjdhfoie
+
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+laksjdhfoie
+
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+laksjdhfoie
+
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
