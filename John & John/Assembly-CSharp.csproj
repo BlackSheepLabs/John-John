@@ -132,6 +132,7 @@
      <Compile Include="Assets\Marmoset\Skyshop\Script\Sky.cs" />
      <Compile Include="Assets\Robert&apos;s Stuff\MovingPlatform_Perpetual.cs" />
      <Compile Include="Assets\Robert&apos;s Stuff\NextLevelCollider.cs" />
+     <Compile Include="Assets\Scripts\RaiseStairsOnActivate.cs" />
      <None Include="Assets\Marmoset\Shader\VertexColor\Marmoset Bumped Specular IBL.shader" />
      <None Include="Assets\Standard Assets\Glass Refraction (Pro Only)\Sources\Shaders\Glass-Stained-BumpDistort.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
@@ -349,15 +350,16 @@
      <None Include="Assets\Marmoset\Shader\Mobile\VertexColor\Marmoset Specular IBL.shader" />
      <None Include="Assets\Marmoset\Shader\Mobile\Marmoset Bumped Specular IBL Fast.shader" />
      <None Include="Assets\Marmoset\Shader\Beta\BoxProjection\Marmoset Diffuse IBL.shader" />
+     <None Include="Assets\Lux\Lux Shader\Illumination\Lux Illumin AlphaTest Bumped Specular.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\6by9\ProBuilder\Credits.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="ProBuilderCore">
- <HintPath>C:/Users/ebw3559/Desktop/John & John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>C:/Users/jww7675/Documents/The Real John & John (CMPS 490)/John & John/John-John/John & John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/ebw3559/Desktop/John & John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/jww7675/Documents/The Real John & John (CMPS 490)/John & John/John-John/John & John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
