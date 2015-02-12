@@ -43,7 +43,7 @@ public class SlidingDoor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log(doorState);
+		Debug.Log(doorState);
 
 
 		
