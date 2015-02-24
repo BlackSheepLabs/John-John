@@ -303,6 +303,7 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\Blend.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlendModesOverlay.shader" />
      <None Include="Assets\Marmoset\External\Lightmapping Extended\Presets\Built-in\High Quality.xml" />
+     <None Include="Assets\Lux\Lux Shader\Transparent\Lux Transparent Bumped Specular.shader" />
      <None Include="Assets\Marmoset\Shader\Beta\SH\Marmoset Vertex Lit Specular IBL.shader" />
      <None Include="Assets\Marmoset\Shader\Mobile\Marmoset Specular IBL Fast.shader" />
      <None Include="Assets\Marmoset\Shader\MarmosetMobile.cginc" />
