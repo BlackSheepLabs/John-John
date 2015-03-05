@@ -40,9 +40,14 @@ public class StepOnSwitch : MonoBehaviour {
 	private SwitchState switchState;
 	public bool swapped;
 	private float swappedTimer;
-	
+
+	public float sinkDistance = 0.05f;
+	float startHeight;
+
 	void Start() {
+		if(sinkDistance < 0.0f) sinkDistance *= -1;
 		switchState = SwitchState.OFF;
+		startHeight = transform.position.y;
 		swapped = false;
 		swappedTimer = .05f;
 	}
@@ -65,6 +70,11 @@ public class StepOnSwitch : MonoBehaviour {
 		if (Input.GetMouseButtonDown(1)) {
 			swapped = true;
 		}
+
+		if(switchState == SwitchState.ON && transform.position.y > startHeight-sinkDistance)
+			transform.position -= Time.deltaTime*Vector3.up;
+		else if(switchState == SwitchState.OFF && transform.position.y <= startHeight)
+			transform.position += Time.deltaTime*Vector3.up;
 
 		//Debug.Log(swapped);
 	}
