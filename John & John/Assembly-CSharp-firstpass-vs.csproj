@@ -110,6 +110,7 @@
      <None Include="Assets\Marmoset\Shader\Transparent\Cutout\Marmoset Diffuse IBL.shader" />
      <None Include="Assets\Marmoset\Shader\MarmosetCore.cginc" />
      <None Include="Assets\Marmoset\Documentation\Lightmapping.txt" />
+     <None Include="Assets\civilian\readme.txt" />
      <None Include="Assets\Marmoset\Shader\VertexOcclusion\Marmoset Bumped Specular Vertex Occ IBL.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowCompose.shader" />
      <None Include="Assets\Marmoset\Shader\Beta\SH\Marmoset Vertex Lit IBL.shader" />
