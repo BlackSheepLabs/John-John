@@ -332,13 +332,13 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
- <HintPath>C:/Users/ebw3559/Desktop/John-John/John & John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John & John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/ebw3559/Desktop/John-John/John & John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John & John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderEditor">
- <HintPath>C:/Users/ebw3559/Desktop/John-John/John & John/Assets/6by9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
+ <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John & John/Assets/6by9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
