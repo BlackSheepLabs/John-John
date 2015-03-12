@@ -28,7 +28,7 @@ public class Trigger : MonoBehaviour {
 		ResponseObject
 	}
 
-	State currentState = State.Deactivated;
+	public State currentState = State.Deactivated;
 	public State state { get { return currentState; } }
 
 	public Type triggerType = Type.NonInteractive;
@@ -50,7 +50,7 @@ public class Trigger : MonoBehaviour {
 	public bool Toggleable = true;
 	public bool forceResponseToSameState = false;
 
-	Vector3 initialPosition;
+	public Vector3 initialPosition;
 
 	// The space in which to move the response object if one is set
 	public Locality movementReferenceFrame;
@@ -80,6 +80,7 @@ public class Trigger : MonoBehaviour {
 		switch(currentState)
 		{
 			case State.Deactivating:
+				moveTime += Time.deltaTime;
 				if(moveTime >= duration)
 				{
 					currentState = State.Deactivated;
@@ -87,7 +88,7 @@ public class Trigger : MonoBehaviour {
 				}
 				else if(responseObject != null)
 				{
-					float adjTime = moveTime / duration;
+					float adjTime = (duration - moveTime) / duration;
 					switch(movementReferenceFrame)
 					{
 					case Locality.World:
@@ -95,7 +96,7 @@ public class Trigger : MonoBehaviour {
 							+ yMovement.Evaluate(adjTime) * Vector3.up + zMovement.Evaluate(adjTime) * Vector3.forward;
 						break;
 					case Locality.ResponseObject:
-						responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * responseObject.transform.right
+						responseObject.transform.localPosition = initialPosition + xMovement.Evaluate(adjTime) * responseObject.transform.right
 							+ yMovement.Evaluate(adjTime) * responseObject.transform.up + zMovement.Evaluate(adjTime) * responseObject.transform.forward;
 						break;
 					case Locality.ThisObject:
@@ -121,7 +122,7 @@ public class Trigger : MonoBehaviour {
 							+ yMovement.Evaluate(adjTime) * Vector3.up + zMovement.Evaluate(adjTime) * Vector3.forward;
 						break;
 					case Locality.ResponseObject:
-						responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * responseObject.transform.right
+						responseObject.transform.localPosition = initialPosition + xMovement.Evaluate(adjTime) * responseObject.transform.right
 							+ yMovement.Evaluate(adjTime) * responseObject.transform.up + zMovement.Evaluate(adjTime) * responseObject.transform.forward;
 						break;
 					case Locality.ThisObject:
@@ -130,6 +131,7 @@ public class Trigger : MonoBehaviour {
 						break;
 					}
 				}
+				moveTime += Time.deltaTime;
 				break;
 			case State.Activated:
 				if(forceResponseToSameState)
@@ -143,7 +145,7 @@ public class Trigger : MonoBehaviour {
 				break;
 		}
 
-		if (triggerType == Type.KeyTest && Input.GetKeyDown (KeyCode.Space)) 
+		if (triggerType == Type.KeyTest && Input.GetKeyDown (KeyCode.E)) 
 		{
 			Activate ();
 			Deactivate ();

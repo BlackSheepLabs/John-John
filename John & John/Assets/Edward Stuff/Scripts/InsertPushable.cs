@@ -9,8 +9,11 @@ public class InsertPushable : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		/*If object inserted has tag "Pushable", call ObjectActivate function*/
-		if(other.tag == "Pushable")
+		if(other.tag == "Pushable"){
 			ObjectActivate();
+			other.transform.position = gameObject.transform.position;
+
+		}
 
 	}
 

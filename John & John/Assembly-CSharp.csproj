@@ -50,6 +50,7 @@
      <Compile Include="Assets\6by9\ProBuilder\API Examples\Runtime Editing\Materials\pb_Selection.cs" />
      <Compile Include="Assets\6by9\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
      <Compile Include="Assets\6by9\ProGrids\Classes\pg_Util.cs" />
+     <Compile Include="Assets\Alex&apos;s Scripts\BezierPath.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\BoxExplode.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\FPLooker.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\GeneralTimer.cs" />
@@ -57,6 +58,8 @@
      <Compile Include="Assets\Alex&apos;s Scripts\Move.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\RisingStairs.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\StateSystem.cs" />
+     <Compile Include="Assets\Alex&apos;s Scripts\Trigger.cs" />
+     <Compile Include="Assets\Alex&apos;s Scripts\pathTraverser.cs" />
      <Compile Include="Assets\Apple Things\Main Menu\Scripts\AlternatingPlatform.cs" />
      <Compile Include="Assets\Apple Things\Main Menu\Scripts\AnimationManager.cs" />
      <Compile Include="Assets\Apple Things\Main Menu\Scripts\CharacterDies.cs" />
@@ -183,6 +186,7 @@
      <None Include="Assets\Marmoset\Shader\Transparent\Cutout\Marmoset Diffuse IBL.shader" />
      <None Include="Assets\Marmoset\Shader\MarmosetCore.cginc" />
      <None Include="Assets\Marmoset\Documentation\Lightmapping.txt" />
+     <None Include="Assets\civilian\readme.txt" />
      <None Include="Assets\Marmoset\Shader\VertexOcclusion\Marmoset Bumped Specular Vertex Occ IBL.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\GlowCompose.shader" />
      <None Include="Assets\Marmoset\Shader\Beta\SH\Marmoset Vertex Lit IBL.shader" />
@@ -358,10 +362,10 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
- <HintPath>C:/Users/jww7675/Documents/The Real John & John (CMPS 490)/John & John/John-John/John & John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>C:/Users/ebw3559/Desktop/John-John/John & John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/jww7675/Documents/The Real John & John (CMPS 490)/John & John/John-John/John & John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/ebw3559/Desktop/John-John/John & John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
