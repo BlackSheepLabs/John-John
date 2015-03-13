@@ -3,7 +3,22 @@ using System.Collections;
 
 public class pathTraverser : MonoBehaviour {
 
-	public float speed = 2.0f;
+	public enum TrackingMode
+	{
+		FixedDirection,
+		RollerCoaster,
+		Observe,
+		Track,
+		None
+	};
+
+	public TrackingMode mode = TrackingMode.FixedDirection;
+
+	public Vector3 directionToLook;
+	public GameObject objectToFollow;
+
+
+	public AnimationCurve speed;
 	public BezierPath pathToFollow;
 	public float t = 0;
 	Vector3 lastPoint = Vector3.zero;
@@ -17,17 +32,37 @@ public class pathTraverser : MonoBehaviour {
 		if(t < 1.0f)
 		{
 			bool finished = false;
+			float dSpeed = Mathf.Abs(speed.Evaluate(t));
+			float dist = 0.0f;
 			while(t < 1.0f && !finished)
 			{
-				t += speed/(pathToFollow.GetLength(t)*20)*Time.deltaTime;
-				if((pathToFollow.GetPoint (t)-lastPoint).sqrMagnitude >= speed*speed*Time.deltaTime*Time.deltaTime)
+				Vector3 prev = transform.position;
+				t += dSpeed/(pathToFollow.GetLength(t)*20)*Time.deltaTime;
+				dist += (pathToFollow.GetPoint (t)-prev).magnitude;
+				if(dist >= dSpeed*Time.deltaTime)
 				{
 					finished = true;
-				}
+				} else prev = pathToFollow.GetPoint (t);
 			}
+
 			Vector3 currentPoint = pathToFollow.GetPoint(t);
 			this.transform.position = currentPoint;
-			this.transform.LookAt(2*currentPoint-lastPoint);
+
+			switch(mode)
+			{
+				case TrackingMode.FixedDirection:
+					this.transform.LookAt(currentPoint + directionToLook);
+					break;
+				case TrackingMode.RollerCoaster:
+					this.transform.LookAt(2*currentPoint-lastPoint);
+					break;
+				case TrackingMode.Observe:
+					this.transform.LookAt(objectToFollow.transform.position);
+					break;
+				case TrackingMode.Track:
+					this.transform.LookAt(2*currentPoint-lastPoint);
+					break;
+			}
 			//Debug.Log ("Current Speed: " + ((currentPoint-lastPoint).magnitude/Time.deltaTime).ToString());
 			lastPoint = currentPoint;
 		}
