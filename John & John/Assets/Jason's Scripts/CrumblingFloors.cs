@@ -31,7 +31,9 @@ public class CrumblingFloors : MonoBehaviour {
 	public float timer = 3.0f;
 	public float respawnTimer = 5.0f;
 	public int type = 1;
-	
+
+	public AudioClip snapSound;
+
 	private float blueValue = .75f;
 	private float blueScale;
 	private CrumbleState crumbleState;
@@ -88,6 +90,7 @@ public class CrumblingFloors : MonoBehaviour {
 		}
 
 		if (timer <= 0) {
+			audio.PlayOneShot(snapSound,1);
 			renderer.enabled = false;
 			collider.enabled = false;
 			crumbleState = CrumbleState.SAFE;

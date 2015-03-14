@@ -5,6 +5,7 @@ public class GoToNextLvl : MonoBehaviour {
 
 	public GameObject player;
 	public GameObject clone;
+	public AudioClip teleporterEffect;
 
 	bool playerIn1;
 	bool playerIn2;
@@ -17,6 +18,7 @@ public class GoToNextLvl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (playerIn1 && playerIn2)
+			audio.PlayOneShot(teleporterEffect,1);
 			AutoFade.LoadLevel( Application.loadedLevel + 1,3,1,Color.black);
 	}
 

@@ -27,6 +27,8 @@ public class SlidingDoor : MonoBehaviour {
 	private Vector3 startPosition;
 	private float timer = 0f;
 
+	public AudioClip doorSound;
+
 	// Set out states and starting position
 	void Start () {
 		doorState = DoorState.SHUT;
@@ -61,6 +63,7 @@ public class SlidingDoor : MonoBehaviour {
 
 	void ObjectActivate() {
 		doorState = DoorState.OPEN;
+		audio.PlayOneShot(doorSound,1); // need to check and see if this is in the right place
 	}
 	
 	void ObjectDeactivate() {

@@ -36,7 +36,10 @@ public class ButtonPress : MonoBehaviour {
 	//testcode//
 	public GameObject targetCube;
 	//testcode//
-	
+
+	// sound effect
+	public AudioClip buttonSound;
+
 	// Use this for initialization
 	void Start () {
 		pointedAt = false;
@@ -58,6 +61,7 @@ public class ButtonPress : MonoBehaviour {
 				Debug.DrawRay(transform.position,buttonPressDist*transform.forward,Color.green);
 				if (Input.GetMouseButtonDown(0)) {
 					hitInfo.collider.gameObject.SendMessage("ObjectActivate", SendMessageOptions.DontRequireReceiver);
+					audio.PlayOneShot(buttonSound,1);
 				}
 			}
 			else {

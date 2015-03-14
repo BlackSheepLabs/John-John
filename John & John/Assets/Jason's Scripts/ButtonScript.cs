@@ -25,7 +25,7 @@ public class ButtonScript : MonoBehaviour {
 	
 	// State for button to tell whether it's already been pressed or not
 	enum ButtonState {HAPPY, DEPRESSED};
-	
+	//public AudioClip buttonSound;
 	//Material used to signify that the switch is "on"
 	//public Material onMaterial;
 	//public Material offMaterial;
@@ -33,6 +33,8 @@ public class ButtonScript : MonoBehaviour {
 	//Tag that will have its objects activated
 	//public string objectTag;
 	public GameObject[] activatableObjects;
+
+
 	
 	private ButtonState buttonState;
 	
@@ -60,9 +62,12 @@ public class ButtonScript : MonoBehaviour {
 		if (buttonState == ButtonState.HAPPY) {
 			buttonState = ButtonState.DEPRESSED;
 
+			//audio.PlayOneShot(buttonSound,1);
+
 			if (activatableObjects.Length != 0) {
 				foreach (GameObject obj in activatableObjects) {
 					obj.SendMessage("ObjectActivate", SendMessageOptions.DontRequireReceiver);
+					GetComponent<AudioSource>().Play();
 				}
 			}
 			buttonState = ButtonState.HAPPY;

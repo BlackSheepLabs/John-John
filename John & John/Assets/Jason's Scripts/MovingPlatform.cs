@@ -30,6 +30,8 @@ public class MovingPlatform : MonoBehaviour
 		private bool reverse;
 		public bool stopAtEnd;
 		private ActivateState activateState;
+
+		public AudioClip platformSound;
 	
 		// Use this for initialization
 		void Start ()
@@ -67,6 +69,7 @@ public class MovingPlatform : MonoBehaviour
 		
 				while (true) {
 						if (activateState == ActivateState.ON) {
+				audio.PlayOneShot(platformSound,1); // check to see if it is in right location
 								if (!reverse) {
 										timer += Time.deltaTime;
 								} else {
