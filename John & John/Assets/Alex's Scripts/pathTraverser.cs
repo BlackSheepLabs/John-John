@@ -32,7 +32,7 @@ public class pathTraverser : MonoBehaviour {
 		if(t < 1.0f)
 		{
 			bool finished = false;
-			float dSpeed = Mathf.Abs(speed.Evaluate(t));
+			float dSpeed = Mathf.Abs(speed.Evaluate(t))+1;
 			float dist = 0.0f;
 			while(t < 1.0f && !finished)
 			{
