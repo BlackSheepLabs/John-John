@@ -20,6 +20,8 @@ public class RaiseStairsOnTrigger : MonoBehaviour {
 
 	public GameObject staircase;
 
+	public AudioClip stairsSound;
+
 	public float movementTime = 2f;
 	public Vector3 movementVector;
 
@@ -38,14 +40,20 @@ public class RaiseStairsOnTrigger : MonoBehaviour {
 	void Update () {
 		if (stairState == StairState.UP && timer <= movementTime) {
 			timer += Time.deltaTime;
+			audio.clip = stairsSound;
+			audio.Play();
 		} else if (stairState == StairState.DOWN && timer >= 0) {
 			timer -= Time.deltaTime;
+			audio.clip = stairsSound;
+			audio.Play();
 		}
 
 		staircase.transform.position = Vector3.Lerp(startPosition, startPosition + movementVector, timer/movementTime);
 	
 		if (stairState == StairState.DELAYING) {
 			delayTimer -= Time.deltaTime;
+			audio.clip = stairsSound;
+			audio.Stop();
 			if (delayTimer <= 0) {
 				stairState = StairState.DOWN;
 			}
