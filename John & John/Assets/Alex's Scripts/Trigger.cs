@@ -12,15 +12,15 @@ public enum Type {
 	NonInteractive
 }
 
-public class Trigger : MonoBehaviour {
+// The current state of this object
+public enum State {
+	Activated,
+	Activating,
+	Deactivated,
+	Deactivating
+}
 
-	// The current state of this object
-	public enum State {
-		Activated,
-		Activating,
-		Deactivated,
-		Deactivating
-	}
+public class Trigger : MonoBehaviour {
 
 	public enum Locality {
 		World,
@@ -36,6 +36,9 @@ public class Trigger : MonoBehaviour {
 	public Trigger[] responseTriggers;
 
 	public GameObject responseObject;
+
+	public LayerMask layers = -1;
+	private int triggeredObjects = 0;
 
 	// The duration over which to move the response object
 	// Acts to delay activation signals if no response object is set
@@ -177,4 +180,28 @@ public class Trigger : MonoBehaviour {
 	}
 
 	public virtual void OnDeactivate() {}
+
+	public void OnTriggerEnter(Collider other)
+	{
+		if(triggerType == Type.Touchable && (layers & (1 << other.gameObject.layer)) == 1)
+		{
+			triggeredObjects += 1;
+			if(triggeredObjects == 1)
+			{
+				Activate ();
+			}
+		}
+	}
+
+	public void OnTriggerExit(Collider other)
+	{
+		if(triggerType == Type.Touchable && (layers & (1 << other.gameObject.layer)) == 1)
+		{
+			triggeredObjects -= 1;
+			if(triggeredObjects == 0)
+			{
+				Deactivate ();
+			}
+		}
+	}
 }

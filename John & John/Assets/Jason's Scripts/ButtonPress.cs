@@ -53,14 +53,20 @@ public class ButtonPress : MonoBehaviour {
 	 * Don't worry about double activation, button script will handle with states
 	 */
 	void Update () {
-		if (Physics.Raycast(transform.position, transform.forward, out hitInfo, buttonPressDist, pickupMask)) {
+		if (Physics.Raycast(transform.position, transform.forward, out hitInfo, buttonPressDist, pickupMask)) 
+		{
+			Trigger t = hitInfo.collider.GetComponent<Trigger>();
 
-			if (hitInfo.collider.gameObject.tag == "Button") {
+			if (t != null && t.triggerType == Type.Clickable) {
 				//TODO Display some GUI thing that'll tell the user he can interact.
 				pointedAt = true;
 				Debug.DrawRay(transform.position,buttonPressDist*transform.forward,Color.green);
 				if (Input.GetMouseButtonDown(0)) {
-					hitInfo.collider.gameObject.SendMessage("ObjectActivate", SendMessageOptions.DontRequireReceiver);
+					if(t.state == State.Activated)
+						t.Deactivate();
+					else
+						t.Activate();
+
 					audio.PlayOneShot(buttonSound,1);
 				}
 			}
