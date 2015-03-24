@@ -8,12 +8,12 @@ Shader "Custom/Diffuse Vertex Color" {
     ColorMask RGB
 
     CGPROGRAM
-    #pragma surface surf Lambert addshadow fullforwardshadows
+    #pragma surface surf Lambert
 
     sampler2D _MainTex;
 
     struct Input {
-        float4 color : COLOR; // interpolated vertex color
+        float4 color : COLOR;
         float2 uv_MainTex;
     };
 
@@ -23,5 +23,6 @@ Shader "Custom/Diffuse Vertex Color" {
     }
     ENDCG
   }
+
   Fallback "Diffuse"
 }
