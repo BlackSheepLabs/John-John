@@ -5,7 +5,7 @@
 using UnityEngine;
 using System.Collections;
 
-public enum Type {
+public enum TriggerType {
 	Clickable,		// Requires a trigger collider so that the player can find and toggle the object
 	Touchable,
 	KeyTest,
@@ -28,17 +28,22 @@ public class Trigger : MonoBehaviour {
 		ResponseObject
 	}
 
+
 	public State currentState = State.Deactivated;
 	public State state { get { return currentState; } }
 
-	public Type triggerType = Type.NonInteractive;
+	[Space(10)][Header("Trigger Settings")][Space(5)]
+
+	public TriggerType triggerType = TriggerType.NonInteractive;
 
 	public Trigger[] responseTriggers;
 
-	public GameObject responseObject;
-
 	public LayerMask layers = -1;
 	private int triggeredObjects = 0;
+
+	[Space(10)][Header("Movement References")][Space(5)]
+
+	public GameObject responseObject;
 
 	// The duration over which to move the response object
 	// Acts to delay activation signals if no response object is set
@@ -53,10 +58,20 @@ public class Trigger : MonoBehaviour {
 	public bool Toggleable = true;
 	public bool forceResponseToSameState = false;
 
-	public Vector3 initialPosition;
+	private Vector3 initialPosition;
+
+	private AudioSource source;
 
 	// The space in which to move the response object if one is set
 	public Locality movementReferenceFrame;
+
+	// Handles loading and playing sound effects on activate/deactivate
+	[Space(10)][Header("Sound Effects")][Space(5)]
+
+	public AudioClip activateSoundEffect;
+	public float activateSEDelay = 0.0f;
+	public AudioClip deactivateSoundEffect;
+	public float deactivateSEDelay = 0.0f;
 
 	public virtual void Start()
 	{
@@ -75,6 +90,14 @@ public class Trigger : MonoBehaviour {
 					break;
 			}
 		}
+
+		source = gameObject.GetComponent<AudioSource>();
+
+		if(source == null) 
+		{
+			source = gameObject.AddComponent<AudioSource>();
+			source.playOnAwake = false;
+		}
 	}
 
 
@@ -87,6 +110,7 @@ public class Trigger : MonoBehaviour {
 				if(moveTime >= duration)
 				{
 					currentState = State.Deactivated;
+					if(source != null && source.isPlaying && source.loop) source.Stop();
 					foreach(Trigger t in responseTriggers) t.Deactivate();
 				}
 				else if(responseObject != null)
@@ -113,6 +137,7 @@ public class Trigger : MonoBehaviour {
 				if(moveTime >= duration)
 				{
 					currentState = State.Activated;
+					if(source != null && source.isPlaying && source.loop) source.Stop();
 					foreach(Trigger t in responseTriggers) t.Activate();
 				}
 				else if(responseObject != null)
@@ -148,7 +173,7 @@ public class Trigger : MonoBehaviour {
 				break;
 		}
 
-		if (triggerType == Type.KeyTest && Input.GetKeyDown (KeyCode.E)) 
+		if (triggerType == TriggerType.KeyTest && Input.GetKeyDown (KeyCode.E)) 
 		{
 			Activate ();
 			Deactivate ();
@@ -162,6 +187,18 @@ public class Trigger : MonoBehaviour {
 		{
 			currentState = State.Activating;
 			moveTime = 0.0f;
+
+			if(source != null && activateSoundEffect != null) 
+			{
+				source.clip = activateSoundEffect;
+				source.PlayDelayed (activateSEDelay);
+			}
+			else if(source != null && deactivateSoundEffect != null) 
+			{
+				source.clip = deactivateSoundEffect;
+				source.PlayDelayed (deactivateSEDelay);
+			}
+
 			OnActivate ();
 		}
 	}
@@ -175,6 +212,18 @@ public class Trigger : MonoBehaviour {
 		{
 			currentState = State.Deactivating;
 			moveTime = 0.0f;
+
+			if(source != null && deactivateSoundEffect != null) 
+			{
+				source.clip = deactivateSoundEffect;
+				source.PlayDelayed (deactivateSEDelay);
+			}
+			else if(source != null && activateSoundEffect != null) 
+			{
+				source.clip = activateSoundEffect;
+				source.PlayDelayed (activateSEDelay);
+			}
+
 			OnDeactivate ();
 		}
 	}
@@ -183,7 +232,7 @@ public class Trigger : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider other)
 	{
-		if(triggerType == Type.Touchable && (layers & (1 << other.gameObject.layer)) == 1)
+		if(triggerType == TriggerType.Touchable && (layers & (1 << other.gameObject.layer)) == 1)
 		{
 			triggeredObjects += 1;
 			if(triggeredObjects == 1)
@@ -195,7 +244,7 @@ public class Trigger : MonoBehaviour {
 
 	public void OnTriggerExit(Collider other)
 	{
-		if(triggerType == Type.Touchable && (layers & (1 << other.gameObject.layer)) == 1)
+		if(triggerType == TriggerType.Touchable && (layers & (1 << other.gameObject.layer)) == 1)
 		{
 			triggeredObjects -= 1;
 			if(triggeredObjects == 0)

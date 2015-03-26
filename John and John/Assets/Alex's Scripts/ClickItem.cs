@@ -16,7 +16,7 @@ public class ClickItem : MonoBehaviour {
 
 				Debug.Log("Trying to click " + obj.collider.name + "...");
 
-				if(t != null && t.triggerType == Type.Clickable)
+				if(t != null && t.triggerType == TriggerType.Clickable)
 				{
 					if(t.state == State.Activated)
 						t.Deactivate();

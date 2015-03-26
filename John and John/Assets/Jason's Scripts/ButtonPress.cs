@@ -57,7 +57,7 @@ public class ButtonPress : MonoBehaviour {
 		{
 			Trigger t = hitInfo.collider.GetComponent<Trigger>();
 
-			if (t != null && t.triggerType == Type.Clickable) {
+			if (t != null && t.triggerType == TriggerType.Clickable) {
 				//TODO Display some GUI thing that'll tell the user he can interact.
 				pointedAt = true;
 				Debug.DrawRay(transform.position,buttonPressDist*transform.forward,Color.green);
