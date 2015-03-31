@@ -183,6 +183,7 @@ public class Trigger : MonoBehaviour {
 
 	public void Activate() 
 	{
+
 		if (currentState == State.Deactivated) 
 		{
 			currentState = State.Activating;
