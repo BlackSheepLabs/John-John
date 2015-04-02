@@ -181,11 +181,27 @@ public class Trigger : MonoBehaviour {
 	}
 
 
-	public void Activate() 
+	public virtual void Activate() 
 	{
 
 		if (currentState == State.Deactivated) 
 		{
+			if (responseObject != null)
+			{
+				switch(movementReferenceFrame)
+				{
+				case Locality.World:
+					initialPosition = responseObject.transform.position;
+					break;
+				case Locality.ResponseObject:
+					initialPosition = responseObject.transform.localPosition;
+					break;
+				case Locality.ThisObject:
+					initialPosition = responseObject.transform.position - transform.position;
+					break;
+				}
+			}
+
 			currentState = State.Activating;
 			moveTime = 0.0f;
 
@@ -207,7 +223,7 @@ public class Trigger : MonoBehaviour {
 	public virtual void OnActivate() {}
 
 	
-	public void Deactivate() 
+	public virtual void Deactivate() 
 	{
 		if (Toggleable && currentState == State.Activated) 
 		{
