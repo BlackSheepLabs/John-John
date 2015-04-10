@@ -474,7 +474,6 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MeleeAttackToDown.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ContrastComposite.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset3.shader" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\Fighting.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\FisheyeShader.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\WeaponsHD\Pistol01\WeaponPistol01Run.txt" />
      <None Include="Assets\Marmoset\Shader\Beta\Skin\Marmoset Skin IBL.shader" />
@@ -492,7 +491,6 @@
      <None Include="Assets\Marmoset\Shader\Mobile\VertexOcclusion\Marmoset Bumped Diffuse Vertex Occ IBL.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Apply.shader" />
      <None Include="Assets\6by9\ProGrids\VersionInfo.txt" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\Platform.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistol.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MaceWeaponPullUp.txt" />
      <None Include="Assets\Marmoset\Shader\Resources\Marmoset RGBM Grass.shader" />
@@ -537,8 +535,6 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ArtilleryCamera.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\WeaponsHD\Shotgun01\WeaponShotgun01Crouch.txt" />
      <None Include="Assets\Marmoset\Shader\MarmosetSH.cginc" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\Real Time Stategy (RTS) Medieval.txt" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\Shoot em Up.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolCrouch.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MechWeapon.txt" />
      <None Include="Assets\Marmoset\Shader\MarmosetSurf.cginc" />
@@ -559,7 +555,6 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SSAOShader.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ConvertDepth.shader" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\Physics.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\CowboyShooter.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionCurvesSimple.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MouseLowSensWeapon.txt" />
@@ -604,7 +599,6 @@
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\Contrast Stretch\Luminance.shader" />
      <None Include="Assets\Marmoset\Shader\MarmosetSimple.cginc" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponMachinegunZoom.txt" />
-     <None Include="Assets\Universal Sound FX\#version_history.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolReload.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Shooter\ShooterRevolver.txt" />
      <None Include="Assets\Marmoset\Shader\Illumin\Marmoset Bumped Diffuse IBL.shader" />
@@ -637,7 +631,6 @@
      <None Include="Assets\Marmoset\Shader\Mobile\VertexOcclusion\Marmoset Diffuse Vertex Occ IBL.shader" />
      <None Include="Assets\Marmoset\Documentation\Material.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\Puzzle.txt" />
      <None Include="Assets\Marmoset\Shader\Terrain\Details\WavingGrassBillboard.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\SystemOFFCamera.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\BlurEffectConeTaps.shader" />
@@ -657,7 +650,6 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponGenericSlide.txt" />
      <None Include="Assets\Marmoset\Shader\Mobile\VertexOcclusion\Marmoset Specular Vertex Occ IBL.shader" />
      <None Include="Assets\Marmoset\Shader\Marmoset Diffuse IBL.shader" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\First Person Shooter (FPS).txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableBlur.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\MotionBlurClear.shader" />
@@ -688,7 +680,6 @@
      <None Include="Assets\Marmoset\Shader\Terrain\SoftOcclusion\TreeSoftOcclusionLeaves.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PivotElbowWeapon.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\WeaponsHD\AssaultRifle01\WeaponAssaultRifle01Run.txt" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\Real Time Stategy (RTS) Sci-Fi.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\WallFacingInput.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\MafiaCameraCrouch.txt" />
@@ -705,7 +696,6 @@
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspModernWeapon.txt" />
      <None Include="Assets\Marmoset\Documentation\Vegetation.txt" />
      <None Include="Assets\Marmoset\Shader\Mobile\VertexColor\Marmoset Diffuse IBL.shader" />
-     <None Include="Assets\Universal Sound FX\#Game Genre References\8bit and Retro.txt" />
      <None Include="Assets\WellFired\shared\Uncompiled\Resources\Transitions\WellFiredWipeRight.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolRun.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspModernCamera.txt" />
