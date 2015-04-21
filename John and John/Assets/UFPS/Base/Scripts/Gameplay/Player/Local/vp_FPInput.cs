@@ -587,6 +587,15 @@ public class vp_FPInput : vp_Component
 		}
 	}
 
+	public Vector2 GetMouseLookSensitivity()
+	{
+		return MouseLookSensitivity;
+	}
+
+	public void SetMouseLookSensitivity(Vector2 newVec)
+	{
+		MouseLookSensitivity = newVec;
+	}
 
 }
 
