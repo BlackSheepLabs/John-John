@@ -31,7 +31,6 @@ public class PauseTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (Input.GetKeyDown(KeyCode.P))
 		{
 			if (Time.timeScale == 1)
@@ -47,9 +46,9 @@ public class PauseTrigger : MonoBehaviour {
 			}
 			else 
 			{
-				if(ControlGUI.activeSelf == false)
+				if(ControlGUI.activeSelf == false && Time.timeScale == 0)
 				{
-					Time.timeScale = 1;
+
 					playerML.SetMouseLookSensitivity(oldVec);
 					playerML.MouseCursorForced = false;
 					//crosshair.Paused = false;
@@ -57,6 +56,7 @@ public class PauseTrigger : MonoBehaviour {
 					//playerML.enabled = true;
 					//cameraML.enabled = true;
 					PauseGUI.SetActive(false);
+					Time.timeScale = 1;
 				}
 			}
 		}
