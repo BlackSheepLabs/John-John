@@ -597,17 +597,10 @@
      <None Include="Assets\UFPS\Base\Content\Art\Body\Materials\InvisibleShadowCaster.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
-<<<<<<< HEAD
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="Assembly-UnityScript">
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
-=======
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
- <Reference Include="Assembly-UnityScript">
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
->>>>>>> 219ac77bce7d4aa9cb53a2435ddcf83fa9a3764e
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
@@ -616,7 +609,6 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
-<<<<<<< HEAD
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
@@ -636,27 +628,6 @@
  </Reference>
  <Reference Include="uSequencerEditor">
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/Editor/uSequencerEditor.dll</HintPath>
-=======
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
- </Reference>
- <Reference Include="SixBySeven">
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
- </Reference>
- <Reference Include="ProBuilderEditor">
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Assets/6by9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
- </Reference>
- <Reference Include="SharedEditor">
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Assets/WellFired/shared/Compiled/Editor/SharedEditor.dll</HintPath>
- </Reference>
- <Reference Include="SharedRuntime">
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Assets/WellFired/shared/Compiled/Runtime/SharedRuntime.dll</HintPath>
- </Reference>
- <Reference Include="uSequencerRuntime">
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/uSequencerRuntime.dll</HintPath>
- </Reference>
- <Reference Include="uSequencerEditor">
- <HintPath>C:/Users/mns8949/Desktop/490_Project/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/Editor/uSequencerEditor.dll</HintPath>
->>>>>>> 219ac77bce7d4aa9cb53a2435ddcf83fa9a3764e
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
