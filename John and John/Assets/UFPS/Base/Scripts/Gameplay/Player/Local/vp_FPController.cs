@@ -475,6 +475,7 @@ public class vp_FPController : vp_Component
 
 		// dampen external forces
 		m_ExternalForce /= (1.0f + (PhysicsForceDamping * vp_TimeUtility.AdjustedTimeScale));
+        m_FallSpeed /= (1.0f + (PhysicsForceDamping * vp_TimeUtility.AdjustedTimeScale));
 
 	}
 
@@ -589,7 +590,7 @@ public class vp_FPController : vp_Component
 
 		// --- apply forces ---
 		m_MoveDirection = Vector3.zero;
-		m_MoveDirection += m_ExternalForce;
+        m_MoveDirection += m_ExternalForce;
 		m_MoveDirection += m_MotorThrottle;
 		m_MoveDirection.y += m_FallSpeed;
 
@@ -598,11 +599,11 @@ public class vp_FPController : vp_Component
 		// from "bumpety-bumping" when walking down slopes or stairs. the strength
 		// of this effect is determined by the character controller's 'Step Offset'
 		m_CurrentAntiBumpOffset = 0.0f;
-		if (m_Grounded && m_MotorThrottle.y <= 0.001f)
+/*		if (m_Grounded && m_MotorThrottle.y <= 0.001f)
 		{
 			m_CurrentAntiBumpOffset = Mathf.Max(Player.StepOffset.Get(), Vector3.Scale(m_MoveDirection, (Vector3.one - Vector3.up)).magnitude);
 			m_MoveDirection += m_CurrentAntiBumpOffset * Vector3.down;
-		}
+		} */
 
 		// --- predict move result ---
 		// do some prediction in order to detect blocking and deflect forces on collision
@@ -611,9 +612,9 @@ public class vp_FPController : vp_Component
 		// --- move the charactercontroller ---
 
 		// ride along with movable objects
-		if (m_Platform != null && m_PositionOnPlatform != Vector3.zero)
-			Player.Move.Send(vp_MathUtility.NaNSafeVector3(m_Platform.TransformPoint(m_PositionOnPlatform) -
-																	m_Transform.position));
+		//if (m_Platform != null && m_PositionOnPlatform != Vector3.zero)
+		//	Player.Move.Send(vp_MathUtility.NaNSafeVector3(m_Platform.TransformPoint(m_PositionOnPlatform) -
+		//															m_Transform.position));
 
 		// move on our own
 		Player.Move.Send(vp_MathUtility.NaNSafeVector3(m_MoveDirection * Delta * Time.timeScale));
@@ -655,7 +656,7 @@ public class vp_FPController : vp_Component
 			// then forget about it
 			if (m_Platform != null && m_PositionOnPlatform != Vector3.zero)
 			{
-				AddForce(m_Platform.position - m_LastPlatformPos);
+				//AddForce(m_Platform.position - m_LastPlatformPos);
 				m_Platform = null;
 			}
 
@@ -665,7 +666,7 @@ public class vp_FPController : vp_Component
 				Player.Move.Send(vp_MathUtility.NaNSafeVector3(m_CurrentAntiBumpOffset * Vector3.up) * Delta * Time.timeScale);
 				m_PredictedPos += vp_MathUtility.NaNSafeVector3(m_CurrentAntiBumpOffset * Vector3.up) * Delta * Time.timeScale;
 				m_MoveDirection += m_CurrentAntiBumpOffset * Vector3.up;
-			}
+			} 
 
 		}
 
@@ -724,7 +725,7 @@ public class vp_FPController : vp_Component
 			
 			// store fall impact
 			if (!MotorFreeFly)
-				m_FallImpact = -m_HighestFallSpeed * Time.timeScale;
+				m_FallImpact = -(m_HighestFallSpeed) * Time.timeScale;
 			else
 				m_FallImpact = -(CharacterController.velocity.y * 0.01f) * Time.timeScale;
 
@@ -743,6 +744,7 @@ public class vp_FPController : vp_Component
 			m_MotorThrottle.y = 0.0f;
 			m_MotorJumpForceAcc = 0.0f;
 			m_MotorJumpForceHoldSkipFrames = 0;
+            m_ExternalForce -= m_ExternalForce.y * Vector3.up;
 
 			// detect and store moving platforms
 			if (m_GroundHit.collider.gameObject.layer == vp_Layer.MovableObject)
@@ -1043,7 +1045,7 @@ public class vp_FPController : vp_Component
 		m_NewDir.x = (Transform.InverseTransformDirection(m_NewDir).x);
 
 		Player.HeadImpact.Send(((m_NewDir.x < 0.0f) || (m_NewDir.x == 0.0f && (Random.value < 0.5f))) ? -m_ForceImpact : m_ForceImpact);
-
+        
 	}
 
 
