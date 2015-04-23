@@ -612,9 +612,9 @@ public class vp_FPController : vp_Component
 		// --- move the charactercontroller ---
 
 		// ride along with movable objects
-		//if (m_Platform != null && m_PositionOnPlatform != Vector3.zero)
-		//	Player.Move.Send(vp_MathUtility.NaNSafeVector3(m_Platform.TransformPoint(m_PositionOnPlatform) -
-		//															m_Transform.position));
+		if (m_Platform != null && m_PositionOnPlatform != Vector3.zero)
+			Player.Move.Send(vp_MathUtility.NaNSafeVector3(m_Platform.TransformPoint(m_PositionOnPlatform) -
+																	m_Transform.position));
 
 		// move on our own
 		Player.Move.Send(vp_MathUtility.NaNSafeVector3(m_MoveDirection * Delta * Time.timeScale));
