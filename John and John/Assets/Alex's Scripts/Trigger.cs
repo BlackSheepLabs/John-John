@@ -20,6 +20,7 @@ public enum State {
 	Deactivating
 }
 
+[System.Serializable]
 public class Trigger : MonoBehaviour {
 
 	public enum Locality {
@@ -110,54 +111,28 @@ public class Trigger : MonoBehaviour {
 				if(moveTime >= duration)
 				{
 					currentState = State.Deactivated;
+					OnDeactivated ();
 					if(source != null && source.isPlaying && source.loop) source.Stop();
 					foreach(Trigger t in responseTriggers) t.Deactivate();
 				}
-				else if(responseObject != null)
+				else
 				{
-					float adjTime = (duration - moveTime) / duration;
-					switch(movementReferenceFrame)
-					{
-					case Locality.World:
-						responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * Vector3.right
-							+ yMovement.Evaluate(adjTime) * Vector3.up + zMovement.Evaluate(adjTime) * Vector3.forward;
-						break;
-					case Locality.ResponseObject:
-						responseObject.transform.localPosition = initialPosition + xMovement.Evaluate(adjTime) * responseObject.transform.right
-							+ yMovement.Evaluate(adjTime) * responseObject.transform.up + zMovement.Evaluate(adjTime) * responseObject.transform.forward;
-						break;
-					case Locality.ThisObject:
-						responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * transform.right
-							+ yMovement.Evaluate(adjTime) * transform.up + zMovement.Evaluate(adjTime) * transform.forward;
-						break;
-					}
+					float adjTime =  moveTime / duration;
+					OnDeactivating (adjTime);
 				}
 				break;
 			case State.Activating:
 				if(moveTime >= duration)
 				{
 					currentState = State.Activated;
+					OnActivated ();
 					if(source != null && source.isPlaying && source.loop) source.Stop();
 					foreach(Trigger t in responseTriggers) t.Activate();
 				}
-				else if(responseObject != null)
+				else
 				{
 					float adjTime = moveTime / duration;
-					switch(movementReferenceFrame)
-					{
-					case Locality.World:
-						responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * Vector3.right
-							+ yMovement.Evaluate(adjTime) * Vector3.up + zMovement.Evaluate(adjTime) * Vector3.forward;
-						break;
-					case Locality.ResponseObject:
-						responseObject.transform.localPosition = initialPosition + xMovement.Evaluate(adjTime) * responseObject.transform.right
-							+ yMovement.Evaluate(adjTime) * responseObject.transform.up + zMovement.Evaluate(adjTime) * responseObject.transform.forward;
-						break;
-					case Locality.ThisObject:
-						responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * transform.right
-							+ yMovement.Evaluate(adjTime) * transform.up + zMovement.Evaluate(adjTime) * transform.forward;
-						break;
-					}
+					OnActivating (adjTime);
 				}
 				moveTime += Time.deltaTime;
 				break;
@@ -222,6 +197,29 @@ public class Trigger : MonoBehaviour {
 
 	public virtual void OnActivate() {}
 
+	public virtual void OnActivating(float adjTime) 
+	{
+		if(responseObject == null) return;
+
+		switch(movementReferenceFrame)
+		{
+		case Locality.World:
+			responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * Vector3.right
+				+ yMovement.Evaluate(adjTime) * Vector3.up + zMovement.Evaluate(adjTime) * Vector3.forward;
+			break;
+		case Locality.ResponseObject:
+			responseObject.transform.localPosition = initialPosition + xMovement.Evaluate(adjTime) * responseObject.transform.right
+				+ yMovement.Evaluate(adjTime) * responseObject.transform.up + zMovement.Evaluate(adjTime) * responseObject.transform.forward;
+			break;
+		case Locality.ThisObject:
+			responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * transform.right
+				+ yMovement.Evaluate(adjTime) * transform.up + zMovement.Evaluate(adjTime) * transform.forward;
+			break;
+		}
+	}
+
+	public virtual void OnActivated() {}
+
 	
 	public virtual void Deactivate() 
 	{
@@ -246,6 +244,31 @@ public class Trigger : MonoBehaviour {
 	}
 
 	public virtual void OnDeactivate() {}
+
+	public virtual void OnDeactivating(float adjTime) 
+	{
+		if(responseObject == null) return;
+
+		adjTime = 1 - adjTime;
+		
+		switch(movementReferenceFrame)
+		{
+		case Locality.World:
+			responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * Vector3.right
+				+ yMovement.Evaluate(adjTime) * Vector3.up + zMovement.Evaluate(adjTime) * Vector3.forward;
+			break;
+		case Locality.ResponseObject:
+			responseObject.transform.localPosition = initialPosition + xMovement.Evaluate(adjTime) * responseObject.transform.right
+				+ yMovement.Evaluate(adjTime) * responseObject.transform.up + zMovement.Evaluate(adjTime) * responseObject.transform.forward;
+			break;
+		case Locality.ThisObject:
+			responseObject.transform.position = initialPosition + xMovement.Evaluate(adjTime) * transform.right
+				+ yMovement.Evaluate(adjTime) * transform.up + zMovement.Evaluate(adjTime) * transform.forward;
+			break;
+		}
+	}
+
+	public virtual void OnDeactivated() {}
 
 	public void OnTriggerEnter(Collider other)
 	{
