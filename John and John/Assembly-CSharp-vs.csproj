@@ -59,6 +59,7 @@
      <Compile Include="Assets\Alex&apos;s Scripts\GravWell.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\Move.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Alex&apos;s Scripts\PowerCube.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\RisingStairs.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\StateSystem.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\Trigger.cs" />
@@ -722,6 +723,7 @@
      <None Include="Assets\WellFired\shared\Uncompiled\Resources\Transitions\WellFiredWipeRight.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolRun.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspModernCamera.txt" />
+     <None Include="Assets\Prefabs\PowerCube\Materials\PowerCubeShader.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\WeaponsHD\Pistol01\ShooterPistol01Default.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernControllerZoom.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrection3DLut.shader" />

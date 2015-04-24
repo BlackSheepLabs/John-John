@@ -423,6 +423,7 @@
      <None Include="Assets\WellFired\shared\Uncompiled\Resources\Transitions\WellFiredWipeRight.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Standard\Weapon\WeaponPistolRun.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\PerspModernCamera.txt" />
+     <None Include="Assets\Prefabs\PowerCube\Materials\PowerCubeShader.shader" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\WeaponsHD\Pistol01\ShooterPistol01Default.txt" />
      <None Include="Assets\UFPS\Base\Scripts\Presets\Demo\ModernControllerZoom.txt" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrection3DLut.shader" />
