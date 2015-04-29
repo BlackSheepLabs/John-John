@@ -58,6 +58,8 @@ public class vp_MovingPlatform : MonoBehaviour
 	public float MoveReturnDelay = 0.0f;		// time before returning to start upon stopping at target (Target mode)
 	public float MoveCooldown = 0.0f;			// time to sleep (disable trigger) after returning to start
 	public MovementInterpolationMode MoveInterpolationMode = MovementInterpolationMode.EaseInOut;
+	public bool Return;
+	protected bool m_Activated = false;
 	protected bool m_Moving = false;
 	protected float m_NextAllowedMoveTime = 0.0f;
 	protected float m_MoveTime;
@@ -187,14 +189,26 @@ public class vp_MovingPlatform : MonoBehaviour
 	/// </summary>
 	void FixedUpdate()
 	{
+		if(!Return){
+			if(!m_Activated){
+				UpdatePath();
 				
-		UpdatePath();
-		
-		UpdateMovement();
+				UpdateMovement();
 
-		UpdateRotation();
-		
-		UpdateVelocity();
+				UpdateRotation();
+				
+				UpdateVelocity();
+			}
+		}
+		else{
+			UpdatePath();
+				
+			UpdateMovement();
+
+			UpdateRotation();
+				
+			UpdateVelocity();
+		}
 
 	}
 
@@ -276,7 +290,6 @@ public class vp_MovingPlatform : MonoBehaviour
 	/// </summary>
 	protected void OnStart()
 	{
-
 		// play the start sound, if any
 		if (SoundStart != null)
 			m_Audio.PlayOneShot(SoundStart);
@@ -312,13 +325,14 @@ public class vp_MovingPlatform : MonoBehaviour
 	/// </summary>
 	protected void OnArriveAtDestination()
 	{
-
+		m_Activated = true;
 		// if the platform should wait before going back, schedule the return
 		if ((MoveReturnDelay > 0.0f) && !m_ReturnDelayTimer.Active)
 		{
 			vp_Timer.In(MoveReturnDelay, delegate()
 			{
-				GoTo(0);
+				if(Return)
+					GoTo(0);
 			}, m_ReturnDelayTimer);
 		}
 

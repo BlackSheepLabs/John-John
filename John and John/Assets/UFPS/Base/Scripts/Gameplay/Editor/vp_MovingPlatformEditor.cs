@@ -210,6 +210,8 @@ public class vp_MovingPlatformEditor : Editor
 
 			m_Component.MoveInterpolationMode = (vp_MovingPlatform.MovementInterpolationMode)EditorGUILayout.EnumPopup("Interpolation Mode", m_Component.MoveInterpolationMode);
 			m_Component.MoveSpeed = EditorGUILayout.Slider("Speed", m_Component.MoveSpeed, 0.001f, 2.0f);
+			m_Component.Return = EditorGUILayout.Toggle("Return Platform", m_Component.Return);
+
 			GUI.enabled = true;
 
 			if (m_WaypointCount < 2)
