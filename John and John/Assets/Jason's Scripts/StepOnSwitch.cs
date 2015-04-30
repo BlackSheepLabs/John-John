@@ -40,6 +40,7 @@ public class StepOnSwitch : MonoBehaviour {
 	private SwitchState switchState;
 	public bool swapped;
 	private float swappedTimer;
+	private int objectCount = 0;
 
 	public float sinkDistance = 0.05f;
 	float startHeight;
@@ -81,29 +82,43 @@ public class StepOnSwitch : MonoBehaviour {
 	
 	
 	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Player") {
+		if (other.tag == "Player" || other.tag == "Clone" || other.tag == "Cube") {
+			objectCount++;
 			switchState = SwitchState.ON;
 			foreach (GameObject obj in activatedObjects) {
 				obj.SendMessage("ObjectActivate", SendMessageOptions.DontRequireReceiver);
 			}
 		}
-		if (other.tag == "Clone") {
+		/*if (other.tag == "Clone") {
 			switchState = SwitchState.ON;
 			foreach (GameObject obj in activatedObjects) {
 				obj.SendMessage("ObjectActivate", SendMessageOptions.DontRequireReceiver);
 			}
 		}
+		if (other.tag == "Cube") {
+			switchState = SwitchState.ON;
+			foreach (GameObject obj in activatedObjects) {
+				obj.SendMessage("ObjectActivate", SendMessageOptions.DontRequireReceiver);
+			}
+		}*/
 	}
 
 	void OnTriggerExit(Collider other) {
-		if (other.tag == "Player") {
-			if (swapped == false) {
+		if (other.tag == "Player" || other.tag == "Cube") {
+			objectCount--;
+			if (swapped == false && objectCount == 0) {
 				switchState = SwitchState.OFF;
 				foreach (GameObject obj in activatedObjects) {
 					obj.SendMessage("ObjectDeactivate", SendMessageOptions.DontRequireReceiver);
 				}
 			}
 		}
+		/*if (other.tag == "Cube") {
+				switchState = SwitchState.OFF;
+				foreach (GameObject obj in activatedObjects) {
+					obj.SendMessage("ObjectDeactivate", SendMessageOptions.DontRequireReceiver);
+				}
+		}*/
 	}
 
 }
