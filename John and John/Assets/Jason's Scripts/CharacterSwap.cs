@@ -5,6 +5,7 @@ public class CharacterSwap : MonoBehaviour {
 	// Delcare needed variables
 	private Vector3 tempPosition;
 	private Quaternion tempRotation;
+	private Vector3 cloneEulerAngles; // added to avoid rotating the clone oddly
 	public GameObject player;
 	public GameObject clone;
 
@@ -29,11 +30,13 @@ public class CharacterSwap : MonoBehaviour {
 		tempPosition = player.transform.position;
 		player.transform.position = clone.transform.position;
 		clone.transform.position = tempPosition;
-		
-		
+
+		var cam = FindObjectOfType<vp_FPCamera>();
+
+		var tempAngles = cloneEulerAngles;
 		tempRotation = player.transform.rotation;
-		player.transform.rotation = clone.transform.rotation;
+		cloneEulerAngles = cam.transform.eulerAngles;
+		FindObjectOfType<vp_FPCamera>().SetRotation (tempAngles);
 		clone.transform.rotation = tempRotation;
-		
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// created by Markus Davey 22/11/2011
@@ -19,9 +20,16 @@ public class projectileScript : MonoBehaviour
 
 	public AudioSource deathSound;
 	
+	private GameObject[] PlayerList;
 	// Use this for initialization
 	void Start () 
 	{
+		
+		if (PlayerList == null){
+			PlayerList = GameObject.FindGameObjectsWithTag("Player");
+		}
+
+
 		if (TTL == 0)
 			TTL = 5;
 		//print(TTL);
@@ -54,7 +62,11 @@ public class projectileScript : MonoBehaviour
 		if(C.tag == "Player"){
 			deathSound.enabled = true;
 			deathSound.Play();
-			Application.LoadLevel(Application.loadedLevel);
+			foreach (GameObject Player in PlayerList) 
+			{
+				Player.SendMessage("Die", SendMessageOptions.DontRequireReceiver);
+			}
+			//Application.LoadLevel(Application.loadedLevel);
 		}
 		
 	}
