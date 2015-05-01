@@ -91,6 +91,7 @@
      <Compile Include="Assets\Apple Things\Main Menu\Scripts\TeleportMaster.cs" />
      <Compile Include="Assets\Apple Things\Main Menu\Scripts\TeleportToNextLevel.cs" />
      <Compile Include="Assets\Becca&apos;s Scripts\AutoFade.cs" />
+     <Compile Include="Assets\Becca&apos;s Scripts\BackButton.cs" />
      <Compile Include="Assets\Becca&apos;s Scripts\CubeOnMovingPlatform.cs" />
      <Compile Include="Assets\Becca&apos;s Scripts\DangerousFloor.cs" />
      <Compile Include="Assets\Becca&apos;s Scripts\DangerousFloorWarning.cs" />
