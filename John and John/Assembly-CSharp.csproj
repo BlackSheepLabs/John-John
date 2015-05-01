@@ -118,6 +118,7 @@
      <Compile Include="Assets\Chau&apos;s Scripts\gameManager.cs" />
      <Compile Include="Assets\Chau&apos;s Scripts\time.cs" />
      <Compile Include="Assets\Edward Stuff\Scripts\ActivateJohn.cs" />
+     <Compile Include="Assets\Edward Stuff\Scripts\ActivatePlatformOnTrigger.cs" />
      <Compile Include="Assets\Edward Stuff\Scripts\DualSwitches.cs" />
      <Compile Include="Assets\Edward Stuff\Scripts\InsertPushable.cs" />
      <Compile Include="Assets\Edward Stuff\Scripts\LaserBeam.cs" />
@@ -160,6 +161,9 @@
      <Compile Include="Assets\Marmoset\Skyshop\Script\Logo.cs" />
      <Compile Include="Assets\Marmoset\Skyshop\Script\SHEncoding.cs" />
      <Compile Include="Assets\Marmoset\Skyshop\Script\Sky.cs" />
+     <Compile Include="Assets\ProgressBar\Script\ProgressBarBehaviour.cs" />
+     <Compile Include="Assets\ProgressBar\Script\ProgressRadialBehaviour.cs" />
+     <Compile Include="Assets\ProgressBar\Script\Utils.cs" />
      <Compile Include="Assets\Robert&apos;s Stuff\MovingPlatform_Perpetual.cs" />
      <Compile Include="Assets\Robert&apos;s Stuff\NextLevelCollider.cs" />
      <Compile Include="Assets\Scripts\RaiseStairsOnActivate.cs" />
