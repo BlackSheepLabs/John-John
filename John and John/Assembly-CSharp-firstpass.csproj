@@ -498,16 +498,16 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
- <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
  <Reference Include="SharedRuntime">
- <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/WellFired/shared/Compiled/Runtime/SharedRuntime.dll</HintPath>
+ <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/WellFired/shared/Compiled/Runtime/SharedRuntime.dll</HintPath>
  </Reference>
  <Reference Include="uSequencerRuntime">
- <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/uSequencerRuntime.dll</HintPath>
+ <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/uSequencerRuntime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
