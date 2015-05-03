@@ -415,6 +415,7 @@ public class vp_Grab : vp_Interactable
 		// reset object's velocity
 		if (m_Transform.rigidbody != null)
 		{
+			m_Transform.rigidbody.useGravity = true;
 			m_Transform.rigidbody.velocity = Vector3.zero;
 			m_Transform.rigidbody.angularVelocity = Vector3.zero;
 		}

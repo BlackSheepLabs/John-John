@@ -10,6 +10,8 @@ public class PowerCube : Trigger {
 	public bool IsActive
 	{get {return this.currentState == State.Activated;} }
 
+	private bool containsMain = false;
+
 	// Use this for initialization
 	void Awake () {
 		triggerType = TriggerType.NonInteractive;
@@ -37,7 +39,7 @@ public class PowerCube : Trigger {
 
 
 		foreach(PowerCube p in adjCubes)
-			if(p.IsActive) powered = true;
+			if(p.IsActive && p.containsMain) powered = true;
 
 		if(powered && !IsActive)
 			Activate ();
@@ -47,14 +49,12 @@ public class PowerCube : Trigger {
 
 	public override void OnActivated ()
 	{
-		Debug.Log ("Cube on!");
 		foreach(PowerCube p in adjCubes)
 			p.Activate ();
 	}
 
 	public override void OnDeactivated ()
 	{
-		Debug.Log ("Cube off!");
 		foreach(PowerCube p in adjCubes)
 			p.CheckSources ();
 	}
@@ -74,9 +74,15 @@ public class PowerCube : Trigger {
 		PowerCube pC = other.GetComponent<PowerCube>();
 		if(pC != null && pC != this)
 		{
-			Debug.Log ("Found Power Cube!");
 			adjCubes.Add (pC);
-			if(pC.IsActive && !this.IsActive)
+
+			if(pC.tag == "MainCube"){
+				containsMain = true;
+				foreach(PowerCube p in adjCubes)
+					p.CheckSources();
+			}
+
+			if(pC.IsActive && !this.IsActive && containsMain)
 				Activate ();
 		}
 	}
@@ -86,8 +92,12 @@ public class PowerCube : Trigger {
 		PowerCube pC = other.GetComponent<PowerCube>();
 		if(pC != null)
 		{
-			Debug.Log ("Bye Power Cube!");
 			adjCubes.Remove (pC);
+			if(pC.tag == "MainCube"){
+				containsMain = false;
+				foreach(PowerCube p in adjCubes)
+					p.CheckSources();
+			}
 			CheckSources();
 		}
 	}
