@@ -67,6 +67,9 @@ public class projectileScript : MonoBehaviour
 				Player.SendMessage("Die", SendMessageOptions.DontRequireReceiver);
 			}
 			//Application.LoadLevel(Application.loadedLevel);
+		} else {
+			//Debug.Log("YO");
+			//DestroyObject(this.gameObject);
 		}
 		
 	}
