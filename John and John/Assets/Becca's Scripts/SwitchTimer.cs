@@ -11,7 +11,9 @@ public class SwitchTimer : MonoBehaviour {
 	public GameObject clone;
 
 	public float SwitchTime;
-	public GUISkin customSkin;
+
+	public Font font;
+	public Texture logoTexture;
 
 	float timeElapse;
 	int curTime;
@@ -22,8 +24,9 @@ public class SwitchTimer : MonoBehaviour {
 
 	void Start()
 	{
-		GUI.skin = customSkin;
 		blah = Time.time;
+		GUI.skin.label.font = font;
+		GUI.skin.label.fontSize = 30;
 	}
 
 	void Awake() {
@@ -44,13 +47,13 @@ public class SwitchTimer : MonoBehaviour {
 		curTime = (int)((SwitchTime + 1) - seconds);
 
 		//print to GUI
-		if (curTime == 0)
-		{
+		if (curTime == 0) {
 			Swap ();
 			blah = Time.time;
 		}
 
-		GUI.Label(new Rect(400f, 25f, 100f, 30f), curTime.ToString());
+		//GUI.DrawTexture (new Rect(Screen.width - 40f, Screen.height - 50f, 100f, 30f), logoTexture);
+		GUI.Label (new Rect (Screen.width - 45f, Screen.height - 50f, 100f, 30f), curTime.ToString ());
 	}
 
 	private void Swap() {
