@@ -20,6 +20,8 @@ public class vp_SimpleCrosshair : MonoBehaviour
 
 	public bool HideOnFirstPersonZoom = true;
 	public bool HideOnDeath = true;
+
+	bool Paused = false;
 	
 	protected vp_FPPlayerEventHandler m_Player = null;
 	
@@ -73,6 +75,9 @@ public class vp_SimpleCrosshair : MonoBehaviour
 		if(HideOnDeath && m_Player.Dead.Active)
 			return;
 
+		if(Paused)
+			return;
+
 		GUI.color = new Color(1, 1, 1, 0.8f);
 		GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
 			(Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
@@ -88,6 +93,15 @@ public class vp_SimpleCrosshair : MonoBehaviour
 		set { m_ImageCrosshair = value; }
 	}
 	
+	public bool GetPaused()
+	{
+		return Paused;
+	}
+	
+	public void SetPaused(bool p)
+	{
+		Paused = p;
+	}
 
 }
 
