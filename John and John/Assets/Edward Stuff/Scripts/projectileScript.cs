@@ -69,9 +69,16 @@ public class projectileScript : MonoBehaviour
 			//Application.LoadLevel(Application.loadedLevel);
 		} else {
 			//Debug.Log("YO");
-			//DestroyObject(this.gameObject);
+			//sDestroyObject(this.gameObject);
 		}
 		
+	}
+
+	void OnCollisionEnter(Collision col) {
+		if (col.gameObject.tag != "Player") {
+			Debug.Log("Hit");
+			Destroy(this.gameObject);
+		}
 	}
 	
 }
