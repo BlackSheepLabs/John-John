@@ -270,8 +270,10 @@ public class vp_MovingPlatform : MonoBehaviour
 						}
 						else
 						{
-							if (m_NextWaypoint == (m_Waypoints.Count - 1))
+						if (m_NextWaypoint == (m_Waypoints.Count - 1)){
+							m_Activated = true;
 								PathDirection = Direction.Backwards;
+						}
 						}
 						OnArriveAtWaypoint();
 						GoToNextWaypoint();
