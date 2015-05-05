@@ -19,49 +19,50 @@ using System;
 [System.Serializable]
 public class vp_Respawner : MonoBehaviour
 {
-
+	
 	public enum SpawnMode
 	{
 		SamePosition,
-		SpawnPoint
+		SpawnPoint,
+		Checkpoint
 	}
-
+	
 	// describes what to do when the spawnpoint is obstructed
 	public enum ObstructionSolver
 	{
 		Wait,				// wait for 'RespawnTime' seconds and try again (good for items and powerups)
 		AdjustPlacement		// try to find the closest valid position. if no position is found, wait. (good for players and AI)
 	}
-
+	
 	public SpawnMode m_SpawnMode = SpawnMode.SamePosition;
 	public string SpawnPointTag = "";
-
+	
 	public ObstructionSolver m_ObstructionSolver = ObstructionSolver.Wait;
 	public float ObstructionRadius = 1.0f;	// area around object which must be clear of other objects before respawn
-		
+	
 	public float MinRespawnTime = 3.0f;		// random timespan in seconds to delay respawn
 	public float MaxRespawnTime = 3.0f;
 	public float LastRespawnTime = 0.0f;	// the last point in time at which we respawned. intended use: to prevent hurting a player who has just respawned
 	public bool SpawnOnAwake = false;
-
+	
 	public AudioClip SpawnSound = null;		// sound to play upon respawn
 	public GameObject [] SpawnFXPrefabs = null;	// e.g. a particle effect to be played upon respawn
-
+	
 	#if UNITY_EDITOR
 	[vp_HelpBox(typeof(vp_Respawner), UnityEditor.MessageType.None, typeof(vp_Respawner), null, true)]
 	public float helpbox;
 	#endif
-
+	
 	protected Vector3 m_InitialPosition = Vector3.zero;		// initial position detected and used for respawn
 	protected Quaternion m_InitialRotation;		// initial rotation detected and used for respawn
 	protected vp_Placement Placement = new vp_Placement();
 	protected Transform m_Transform = null;
 	protected AudioSource m_Audio = null;
-
+	
 	protected bool m_IsInitialSpawnOnAwake = false;
-
+	
 	protected vp_Timer.Handle m_RespawnTimer = new vp_Timer.Handle();
-
+	
 	// cache of known respawners, stored by collider (for optimization)
 	protected static Dictionary<Collider, vp_Respawner> m_RespawnersByCollider = null;
 	protected static Dictionary<Collider, vp_Respawner> RespawnersByCollider
@@ -74,63 +75,68 @@ public class vp_Respawner : MonoBehaviour
 		}
 	}
 	protected static vp_Respawner m_GetRespawnerOfColliderResult = null;
+	
+	protected bool IsClone = false;
+	public GameObject Clone;	
+	public GameObject CloneSpawn;
+	protected vp_Placement ClonePlacement = null;
 
+	
 	/// <summary>
 	/// 
 	/// </summary>
 	protected virtual void Awake()
 	{
-
 		m_Transform = transform;
 		m_Audio = audio;
-
+		
 		Placement.Position = m_InitialPosition = m_Transform.position;
 		Placement.Rotation = m_InitialRotation = m_Transform.rotation;
-
+		
 		if (m_SpawnMode == SpawnMode.SamePosition)
 			SpawnPointTag = "";
-
+		
 		if (SpawnOnAwake)
 		{
 			m_IsInitialSpawnOnAwake = true;
 			vp_Utility.Activate(gameObject, false);
 			PickSpawnPoint();
 		}
-
+		
 	}
-
-
+	
+	
 	/// <summary>
 	/// 
 	/// </summary>
 	protected virtual void OnEnable()
 	{
 	}
-
-
+	
+	
 	/// <summary>
 	/// 
 	/// </summary>
 	protected virtual void OnDisable()
 	{
 	}
+	
 
-
+	
 	/// <summary>
 	/// 
 	/// </summary>
 	protected virtual void SpawnFX()
 	{
-
 		if (!m_IsInitialSpawnOnAwake)
 		{
-
+			
 			if (m_Audio != null)
 			{
 				m_Audio.pitch = Time.timeScale;
 				m_Audio.PlayOneShot(SpawnSound);
 			}
-
+			
 			// spawn effects gameobjects
 			if (SpawnFXPrefabs != null && SpawnFXPrefabs.Length > 0)
 			{
@@ -141,12 +147,12 @@ public class vp_Respawner : MonoBehaviour
 				}
 			}
 		}
-
+		
 		m_IsInitialSpawnOnAwake = false;
-
+		
 	}
 	
-
+	
 	/// <summary>
 	/// event target, typically sent by vp_DamageHandler or vp_ItemPickup
 	/// </summary>
@@ -154,8 +160,8 @@ public class vp_Respawner : MonoBehaviour
 	{
 		vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
 	}
-
-
+	
+	
 	/// <summary>
 	/// respawns the object if no other object is occupying the
 	/// respawn area. otherwise reschedules respawning. NOTE:
@@ -166,16 +172,15 @@ public class vp_Respawner : MonoBehaviour
 	/// </summary>
 	public virtual void PickSpawnPoint()
 	{
-
 		// return if the object has been destroyed (for example
 		// as a result of loading a new level while it was gone)
 		if (this == null)
 			return;
-
+		
 		// if mode is 'SamePosition' or the level has no spawnpoints, go to initial position
 		if ((m_SpawnMode == SpawnMode.SamePosition) || (vp_SpawnPoint.SpawnPoints.Count < 1))
 		{
-
+			
 			Placement.Position = m_InitialPosition;
 			Placement.Rotation = m_InitialRotation;
 			// if an object the size of 'RespawnCheckRadius' can't fit at
@@ -184,104 +189,127 @@ public class vp_Respawner : MonoBehaviour
 			{
 				switch (m_ObstructionSolver)
 				{
-					case ObstructionSolver.Wait:
-						// ... just try again later!
+				case ObstructionSolver.Wait:
+					// ... just try again later!
+					vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
+					return;
+				case ObstructionSolver.AdjustPlacement:
+					// try to adjust the position ...
+					if (!vp_Placement.AdjustPosition(Placement, ObstructionRadius))
+					{
+						// ... and only if we failed to adjust the position, try again later
 						vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
 						return;
-					case ObstructionSolver.AdjustPlacement:
-						// try to adjust the position ...
-						if (!vp_Placement.AdjustPosition(Placement, ObstructionRadius))
-						{
-							// ... and only if we failed to adjust the position, try again later
-							vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
-							return;
-						}
-						break;
+					}
+					break;
 				}
 			}
 		}
+		else if((m_SpawnMode == SpawnMode.Checkpoint))
+		{
+			if (Placement.IsObstructed(ObstructionRadius))
+			{
+				switch (m_ObstructionSolver)
+				{
+				case ObstructionSolver.Wait:
+					// ... just try again later!
+					vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
+					return;
+				case ObstructionSolver.AdjustPlacement:
+					// try to adjust the position ...
+					if (!vp_Placement.AdjustPosition(Placement, ObstructionRadius))
+					{
+						// ... and only if we failed to adjust the position, try again later
+						vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
+						return;
+					}
+					break;
+				}
+			}
+			
+			
+			
+		}
 		else
 		{
-
+			
 			// placement will be calculated by the spawnpoint system.
 			// NOTE: the obstruction solution logic becomes slightly
 			// different with spawnpoints
 			switch (m_ObstructionSolver)
 			{
-				case ObstructionSolver.Wait:
-					// if an object the size of 'RespawnCheckRadius' can't fit at
-					// this random spawnpoint ...
-					Placement = vp_SpawnPoint.GetRandomPlacement(0.0f, SpawnPointTag);
-					if (Placement == null)
-					{
-						Placement = new vp_Placement();
-						m_SpawnMode = SpawnMode.SamePosition;
-						PickSpawnPoint();
-					}
-					// NOTE: no 'snap to ground' in this mode since the snap logic
-					// of 'GetRandomPlacement' is dependent on its input value
-					if (Placement.IsObstructed(ObstructionRadius))
-					{
-						// ... skip trying to adjust the position and try again later
-						vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
-						return;
-					}
-					break;
-				case ObstructionSolver.AdjustPlacement:
-					// if an object the size of 'RespawnCheckRadius' can't fit at
-					// this random spawnpoint and we fail to adjust the position ...
-					Placement = vp_SpawnPoint.GetRandomPlacement(ObstructionRadius, SpawnPointTag);
-					if (Placement == null)
-					{
-						// ... try again later
-						vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
-						return;
-					}
-					break;
+			case ObstructionSolver.Wait:
+				// if an object the size of 'RespawnCheckRadius' can't fit at
+				// this random spawnpoint ...
+				Placement = vp_SpawnPoint.GetRandomPlacement(0.0f, SpawnPointTag);
+				if (Placement == null)
+				{
+					Placement = new vp_Placement();
+					m_SpawnMode = SpawnMode.SamePosition;
+					PickSpawnPoint();
+				}
+				// NOTE: no 'snap to ground' in this mode since the snap logic
+				// of 'GetRandomPlacement' is dependent on its input value
+				if (Placement.IsObstructed(ObstructionRadius))
+				{
+					// ... skip trying to adjust the position and try again later
+					vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
+					return;
+				}
+				break;
+			case ObstructionSolver.AdjustPlacement:
+				// if an object the size of 'RespawnCheckRadius' can't fit at
+				// this random spawnpoint and we fail to adjust the position ...
+				Placement = vp_SpawnPoint.GetRandomPlacement(ObstructionRadius, SpawnPointTag);
+				if (Placement == null)
+				{
+					// ... try again later
+					vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
+					return;
+				}
+				break;
 			}
-
+			
 		}
-
+		
 		Respawn();
-
+		
 	}
-
-
+	
+	
 	/// <summary>
 	/// forces an object's 'Placement' to 'position', 'rotation' and
 	/// respawns it at that point
 	/// </summary>
 	public virtual void PickSpawnPoint(Vector3 position, Quaternion rotation)
 	{
-
 		Placement.Position = position;
 		Placement.Rotation = rotation;
-
+		
 		Respawn();
-
+		
 	}
-
-
+	
+	
 	/// <summary>
 	/// 
 	/// </summary>
 	public virtual void Respawn()
 	{
-
 		LastRespawnTime = Time.time;
-
+		
 		// reactivate and reset
 		vp_Utility.Activate(gameObject);
 		SpawnFX();
-
+		
 		// in multiplayer, this should only be true if we're the master / host
 		if (vp_Gameplay.isMaster)
 		{
 			vp_GlobalEvent<Transform, vp_Placement>.Send("Respawn", transform.root, Placement);
 		}
-
+		
 		SendMessage("Reset");		// will trigger on vp_Respawners + vp_DamageHandlers
-
+		
 		// reset placement to start position for next respawn since it may
 		// have been adjusted by obstruction logic during respawn
 		Placement.Position = m_InitialPosition;
@@ -289,7 +317,7 @@ public class vp_Respawner : MonoBehaviour
 		// NOTE: this should end up affecting mainly items and powerups since
 		// players typically use vp_SpawnPoints to fetch a new Placement
 		// every time
-
+		
 	}
 	
 	
@@ -298,28 +326,28 @@ public class vp_Respawner : MonoBehaviour
 	/// </summary>
 	public virtual void Reset()
 	{
-
 		if (!Application.isPlaying)
 			return;
 
+
 		m_Transform.position = Placement.Position;
 
+		
 		if (rigidbody != null && !rigidbody.isKinematic)
 		{
 			rigidbody.angularVelocity = Vector3.zero;
 			rigidbody.velocity = Vector3.zero;
 		}
-
+		
 	}
-
-
+	
+	
 	/// <summary>
 	/// retrieves, finds and caches target respawners for more
 	/// efficient fetching in the future
 	/// </summary>
 	public static vp_Respawner GetRespawnerOfCollider(Collider col)
 	{
-
 		// try to fetch a known respawner on this target
 		if (!RespawnersByCollider.TryGetValue(col, out m_GetRespawnerOfColliderResult))
 		{
@@ -327,21 +355,37 @@ public class vp_Respawner : MonoBehaviour
 			m_GetRespawnerOfColliderResult = col.transform.root.GetComponentInChildren<vp_Respawner>();
 			RespawnersByCollider.Add(col, m_GetRespawnerOfColliderResult);		// add result to the dictionary (even if null)
 		}
-
+		
 		return m_GetRespawnerOfColliderResult;
-
+		
 	}
-
-
+	
+	
 	/// <summary>
 	/// resets the cache of colliders and damagehandlers on level load
 	/// </summary>
 	protected void OnLevelWasLoaded()
 	{
-
 		RespawnersByCollider.Clear();
-
+		
 	}
-
+	
+	/// <summary>
+	/// 
+	/// </summary>
+	protected void OnTriggerEnter(Collider col)
+	{
+		GameObject ParentofCol = col.gameObject.transform.parent.gameObject;
+		if(m_SpawnMode == SpawnMode.Checkpoint){
+			if(ParentofCol.transform.tag == "Checkpoint"){
+				if(!IsClone)
+					Placement.Position = ParentofCol.transform.position;
+				else
+					ClonePlacement.Position = ParentofCol.transform.position;
+			}
+			
+		}
+	}
+	
 }
 
