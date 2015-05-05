@@ -373,6 +373,10 @@ public class vp_Grab : vp_Interactable
 		// ready to start grabbing!
 		m_IsGrabbed = true;
 
+		//Shrink the cube so you can actually see
+		gameObject.transform.localScale = new Vector3 
+			(transform.localScale.x / 2, transform.localScale.y / 2, transform.localScale.z / 2);
+
 	}
 
 
@@ -457,6 +461,9 @@ public class vp_Grab : vp_Interactable
 			m_Camera.RotationPitchLimit.y = m_OriginalPitchDownLimit;
 		});
 
+		//Shrink the cube so you can actually see
+		gameObject.transform.localScale = new Vector3 
+			(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z * 2);
 	}
 
 	
