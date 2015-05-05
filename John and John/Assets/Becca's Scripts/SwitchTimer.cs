@@ -12,12 +12,8 @@ public class SwitchTimer : MonoBehaviour {
 
 	public float SwitchTime;
 
-	public Font font;
-	public Texture logoTexture;
-
 	public GUISkin custSkin;
 
-	float timeElapse;
 	int countdown;
 
 	float startTime;
