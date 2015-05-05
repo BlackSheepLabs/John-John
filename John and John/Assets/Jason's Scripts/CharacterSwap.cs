@@ -6,6 +6,7 @@ public class CharacterSwap : MonoBehaviour {
 	private Vector3 tempPosition;
 	private Quaternion tempRotation;
 	private Vector3 cloneEulerAngles; // added to avoid rotating the clone oddly
+	public bool IsClone = false;
 	public GameObject player;
 	public GameObject clone;
 
@@ -38,5 +39,7 @@ public class CharacterSwap : MonoBehaviour {
 		cloneEulerAngles = cam.transform.eulerAngles;
 		FindObjectOfType<vp_FPCamera>().SetRotation (tempAngles);
 		clone.transform.rotation = tempRotation;
+
+		IsClone = !IsClone;
 	}
 }

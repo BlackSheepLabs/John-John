@@ -104,6 +104,7 @@ public class TransparentCrumblingFloors : MonoBehaviour {
 			audio.PlayOneShot(snapSound,1);
 			renderer.enabled = false;
 			collider.enabled = false;
+			gameObject.transform.collider.enabled = false;
 			//Disable sibling renderers
 			transform.parent.Find("Edges_Cylinder_Material.005").transform.renderer.enabled = false;
 			transform.parent.Find("Sphere_Sphere_Material.006").transform.renderer.enabled = false;
@@ -137,6 +138,14 @@ public class TransparentCrumblingFloors : MonoBehaviour {
 				timer += Time.deltaTime;
 			}
 		}*/
+	}
+
+	public float GetTimerMax(){
+		return timerMax;
+	}
+
+	public float GetRespawnTimerMax(){
+		return respawnTimerMax;
 	}
 	
 	
