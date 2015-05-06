@@ -109,7 +109,7 @@ public class vp_FPInput : vp_Component
 
 		// manage input for moving
 		InputMove();
-		InputRun();
+		//InputRun();
 		InputJump();
 		InputCrouch();
 
