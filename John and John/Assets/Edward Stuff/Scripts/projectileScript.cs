@@ -17,7 +17,7 @@ public class projectileScript : MonoBehaviour
 	
 	public bool isBallistic;
 	public float Drag; // in metres/s lost per second.
-
+	
 	public AudioSource deathSound;
 	
 	private GameObject[] PlayerList;
@@ -28,14 +28,14 @@ public class projectileScript : MonoBehaviour
 		if (PlayerList == null){
 			PlayerList = GameObject.FindGameObjectsWithTag("Player");
 		}
-
-
+		
+		
 		if (TTL == 0)
 			TTL = 5;
 		//print(TTL);
 		Invoke("projectileTimeout", TTL);
 	}
-	 
+	
 	// Update is called once per frame
 	void Update () 
 	{
@@ -57,9 +57,10 @@ public class projectileScript : MonoBehaviour
 	{
 		DestroyObject(gameObject);
 	}
-
+	
 	void OnTriggerEnter(Collider C){
-		if(C.tag == "Player"){
+		/*if(C.tag == "Player"){
+			DestroyObject(gameObject);
 			deathSound.enabled = true;
 			deathSound.Play();
 			foreach (GameObject Player in PlayerList) 
@@ -70,15 +71,15 @@ public class projectileScript : MonoBehaviour
 		} else {
 			//Debug.Log("YO");
 			//sDestroyObject(this.gameObject);
-		}
+		}*/
 		
 	}
-
+	
 	void OnCollisionEnter(Collision col) {
-		if (col.gameObject.tag != "Player") {
+		//if (col.gameObject.tag != "Player") {
 			Debug.Log("Hit");
-			Destroy(this.gameObject);
-		}
+			DestroyObject(gameObject);
+		//}
 	}
 	
 }

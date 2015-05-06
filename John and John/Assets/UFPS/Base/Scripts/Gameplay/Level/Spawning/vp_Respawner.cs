@@ -369,7 +369,7 @@ public class vp_Respawner : MonoBehaviour
 		RespawnersByCollider.Clear();
 		
 	}
-	
+
 	/// <summary>
 	/// 
 	/// </summary>
@@ -387,5 +387,6 @@ public class vp_Respawner : MonoBehaviour
 		}
 	}
 	
+
 }
 

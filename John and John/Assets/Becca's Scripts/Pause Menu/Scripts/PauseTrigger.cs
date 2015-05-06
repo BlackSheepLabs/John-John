@@ -9,6 +9,7 @@ public class PauseTrigger : MonoBehaviour {
 	//MouseLook cameraML;
 	public GameObject PauseGUI;
 	public GameObject ControlGUI;
+	public GameObject SaveLevel;
 	
 	Vector2 oldVec;
 	Vector2 newVec;
@@ -56,6 +57,7 @@ public class PauseTrigger : MonoBehaviour {
 					//playerML.enabled = true;
 					//cameraML.enabled = true;
 					PauseGUI.SetActive(false);
+					SaveLevel.SetActive(false);
 					Time.timeScale = 1;
 				}
 			}

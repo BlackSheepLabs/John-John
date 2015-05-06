@@ -22,11 +22,6 @@ public class WhiteboardTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//if(boardState == boardState.ON)
-		//{
-
-
-		//}
 	
 	}
 
@@ -50,7 +45,7 @@ public class WhiteboardTrigger : MonoBehaviour {
 		GUI.skin = custSkin;
 		if(whiteboardState == boardState.ON)
 		{
-			GUI.Box (new Rect (((Screen.width - 400)/2), ((Screen.height - 400)/2), 400, 400), text);
+			GUI.Box (new Rect (((Screen.width - 600)/2), ((Screen.height - 400)/2), 600, 400), text);
 		}
 	}
 }
