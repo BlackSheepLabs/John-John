@@ -70,9 +70,16 @@ public class Trigger : MonoBehaviour {
 	[Space(10)][Header("Sound Effects")][Space(5)]
 
 	public AudioClip activateSoundEffect;
+	public float volActivate;
+	public float pitchActivate;
 	public float activateSEDelay = 0.0f;
+	public float maxDisAct;
+
 	public AudioClip deactivateSoundEffect;
+	public float volDeactivate;
+	public float pitchDeactivate;
 	public float deactivateSEDelay = 0.0f;
+	public float maxDisDeact;
 
 	public virtual void Start()
 	{
@@ -112,7 +119,7 @@ public class Trigger : MonoBehaviour {
 				{
 					currentState = State.Deactivated;
 					OnDeactivated ();
-					if(source != null && source.isPlaying && source.loop) source.Stop();
+					if(source != null && source.isPlaying/* && source.loop*/) source.Stop();
 					foreach(Trigger t in responseTriggers) t.Deactivate();
 				}
 				else
@@ -183,11 +190,17 @@ public class Trigger : MonoBehaviour {
 			if(source != null && activateSoundEffect != null) 
 			{
 				source.clip = activateSoundEffect;
+				source.volume = volActivate;
+				source.pitch = pitchActivate;
+				source.maxDistance = maxDisAct;
 				source.PlayDelayed (activateSEDelay);
 			}
 			else if(source != null && deactivateSoundEffect != null) 
 			{
 				source.clip = deactivateSoundEffect;
+				source.volume = volDeactivate;
+				source.pitch = pitchDeactivate;
+				source.maxDistance = maxDisDeact;
 				source.PlayDelayed (deactivateSEDelay);
 			}
 
