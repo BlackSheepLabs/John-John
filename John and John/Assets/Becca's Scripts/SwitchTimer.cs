@@ -14,6 +14,10 @@ public class SwitchTimer : MonoBehaviour {
 
 	public GUISkin custSkin;
 
+	public AudioClip swapSound;
+
+	AudioSource source;
+
 	int countdown;
 
 	float startTime;
@@ -23,7 +27,7 @@ public class SwitchTimer : MonoBehaviour {
 	void Start()
 	{
 		startTime = Time.time;
-
+		source = gameObject.GetComponent<AudioSource>();
 	}
 
 	void Awake() {
@@ -54,7 +58,7 @@ public class SwitchTimer : MonoBehaviour {
 	}
 
 	private void Swap() {
-		
+		source.Play();
 		tempPosition = player.transform.position;
 		player.transform.position = clone.transform.position;
 		clone.transform.position = tempPosition;
