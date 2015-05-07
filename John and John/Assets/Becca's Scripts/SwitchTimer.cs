@@ -14,8 +14,6 @@ public class SwitchTimer : MonoBehaviour {
 
 	public GUISkin custSkin;
 
-	public AudioClip swapSound;
-
 	AudioSource source;
 
 	int countdown;
@@ -58,7 +56,7 @@ public class SwitchTimer : MonoBehaviour {
 	}
 
 	private void Swap() {
-		source.Play();
+
 		tempPosition = player.transform.position;
 		player.transform.position = clone.transform.position;
 		clone.transform.position = tempPosition;
@@ -70,5 +68,6 @@ public class SwitchTimer : MonoBehaviour {
 		cloneEulerAngles = cam.transform.eulerAngles;
 		FindObjectOfType<vp_FPCamera>().SetRotation (tempAngles);
 		clone.transform.rotation = tempRotation;
+		source.Play();
 	}
 }

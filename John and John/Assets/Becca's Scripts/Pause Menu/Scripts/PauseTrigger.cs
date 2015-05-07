@@ -10,7 +10,9 @@ public class PauseTrigger : MonoBehaviour {
 	public GameObject PauseGUI;
 	public GameObject ControlGUI;
 	public GameObject SaveLevel;
-	
+
+	public GameObject player;
+
 	Vector2 oldVec;
 	Vector2 newVec;
 	
@@ -21,8 +23,10 @@ public class PauseTrigger : MonoBehaviour {
 		//cameraML = Camera.main.GetComponent<MouseLook>();
 		
 		/* For Hero character controller */
-		playerML = GameObject.FindGameObjectWithTag("Player").GetComponent<vp_FPInput>();
-		crosshair = GameObject.FindGameObjectWithTag("Player").GetComponent<vp_SimpleCrosshair>();
+		//playerML = GameObject.FindGameObjectWithTag("Player").GetComponent<vp_FPInput>();
+		//crosshair = GameObject.FindGameObjectWithTag("Player").GetComponent<vp_SimpleCrosshair>();
+		playerML = player.GetComponent<vp_FPInput>();
+		crosshair = player.GetComponent<vp_SimpleCrosshair>();
 		oldVec = playerML.GetMouseLookSensitivity();
 		PauseGUI.SetActive(false);
 		crosshair.SetPaused(false);
