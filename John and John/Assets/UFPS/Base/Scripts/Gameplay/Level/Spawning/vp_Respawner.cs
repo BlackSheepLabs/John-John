@@ -79,7 +79,7 @@ public class vp_Respawner : MonoBehaviour
 	protected bool IsClone = false;
 	public GameObject Clone;	
 	public GameObject CloneSpawn;
-	protected vp_Placement ClonePlacement = null;
+	protected vp_Placement ClonePlacement = new vp_Placement();
 
 	
 	/// <summary>
@@ -375,13 +375,13 @@ public class vp_Respawner : MonoBehaviour
 	/// </summary>
 	protected void OnTriggerEnter(Collider col)
 	{
-		GameObject ParentofCol = col.gameObject.transform.parent.gameObject;
+		GameObject SP = col.gameObject;
 		if(m_SpawnMode == SpawnMode.Checkpoint){
-			if(ParentofCol.transform.tag == "Checkpoint"){
+			if(SP.tag == "Checkpoint"){
 				if(!IsClone)
-					Placement.Position = ParentofCol.transform.position;
+					Placement.Position = SP.transform.position;
 				else
-					ClonePlacement.Position = ParentofCol.transform.position;
+					ClonePlacement.Position = SP.transform.position;
 			}
 			
 		}

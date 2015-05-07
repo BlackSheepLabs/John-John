@@ -59,19 +59,20 @@ public class projectileScript : MonoBehaviour
 	}
 	
 	void OnTriggerEnter(Collider C){
-		/*if(C.tag == "Player"){
+		if(C.tag == "Player"){
 			DestroyObject(gameObject);
 			deathSound.enabled = true;
 			deathSound.Play();
 			foreach (GameObject Player in PlayerList) 
 			{
+				Debug.Log("You Dead Son");
 				Player.SendMessage("Die", SendMessageOptions.DontRequireReceiver);
 			}
 			//Application.LoadLevel(Application.loadedLevel);
 		} else {
 			//Debug.Log("YO");
 			//sDestroyObject(this.gameObject);
-		}*/
+		}
 		
 	}
 	
