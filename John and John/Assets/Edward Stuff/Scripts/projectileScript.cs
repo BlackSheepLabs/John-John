@@ -47,8 +47,10 @@ public class projectileScript : MonoBehaviour
 		
 		if (muzzleVelocity == Vector3.zero)
 			return;
-		else
+		else {
+			//rigidbody.velocity = muzzleVelocity;
 			transform.position += muzzleVelocity * Time.deltaTime;
+		}
 		transform.LookAt(transform.position + muzzleVelocity.normalized);
 		Debug.DrawLine(transform.position, transform.position + muzzleVelocity.normalized, Color.red);
 	}
@@ -70,17 +72,10 @@ public class projectileScript : MonoBehaviour
 			}
 			//Application.LoadLevel(Application.loadedLevel);
 		} else {
-			//Debug.Log("YO");
-			//sDestroyObject(this.gameObject);
+			Debug.Log("YO");
+			DestroyObject(gameObject);
 		}
 		
 	}
-	
-	void OnCollisionEnter(Collision col) {
-		//if (col.gameObject.tag != "Player") {
-			Debug.Log("Hit");
-			DestroyObject(gameObject);
-		//}
-	}
-	
+
 }

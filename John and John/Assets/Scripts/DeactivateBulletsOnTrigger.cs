@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 //Script to be put on a collection of SHOOTDABULLETs
 //Will turn off shooting upon activation
+//NOTE: IT NOW DOES NOT JUST TURN OFF ON ACTIVATION
+//
 public class DeactivateBulletsOnTrigger : Trigger {
 
 	public List<Transform> shooters;
@@ -24,12 +26,13 @@ public class DeactivateBulletsOnTrigger : Trigger {
 	//Once the player presses the button, turn off bullets
 	public override void OnActivate() {
 		Debug.Log("Activating the deactivating");
-		//Get each collection of shooters
+		//Get each collection of shooters and switch their enabled-ness
 		foreach (Transform shooter in shooters) {
-			Debug.Log("Yo");
-			shooter.GetComponent<weaponScript>().enabled = false;
-
+			if (shooter.GetComponent<weaponScript>().enabled == true)
+				shooter.GetComponent<weaponScript>().enabled = false;
+			else {
+				shooter.GetComponent<weaponScript>().enabled = true;
+			}
 		}
 	}
-
 }
