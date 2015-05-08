@@ -79,7 +79,7 @@ public class vp_Respawner : MonoBehaviour
 	protected bool IsClone = false;
 	public GameObject Clone;	
 	public GameObject CloneSpawn;
-	protected vp_Placement ClonePlacement = new vp_Placement();
+	protected vp_Placement ClonePlacement = null;
 
 	
 	/// <summary>
@@ -380,8 +380,10 @@ public class vp_Respawner : MonoBehaviour
 			if(SP.tag == "Checkpoint"){
 				if(!IsClone)
 					Placement.Position = SP.transform.position;
-				else
-					ClonePlacement.Position = SP.transform.position;
+				else{
+					if(ClonePlacement != null)
+						ClonePlacement.Position = SP.transform.position;
+				}
 			}
 			
 		}
