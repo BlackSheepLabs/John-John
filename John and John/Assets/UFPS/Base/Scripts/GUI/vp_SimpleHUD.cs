@@ -242,9 +242,9 @@ public class vp_SimpleHUD : MonoBehaviour
 		if (!ShowHUD)
 			return;
 		
-		DrawHealth();
+		//DrawHealth();
 
-		DrawAmmo();
+		//DrawAmmo();
 
 		DrawText();
 

@@ -217,7 +217,7 @@ public class vp_Grab : vp_Interactable
 	{
 
 		// update pitch limit
-		m_Camera.RotationPitchLimit = Vector2.Lerp(m_Camera.RotationPitchLimit, new Vector2(m_Camera.RotationPitchLimit.x, CameraPitchDownLimit), m_FetchProgress);
+		//m_Camera.RotationPitchLimit = Vector2.Lerp(m_Camera.RotationPitchLimit, new Vector2(m_Camera.RotationPitchLimit.x, CameraPitchDownLimit), m_FetchProgress);
 
 		// update angular sway
 		if (m_DisableAngleSwayTimer.Active)
