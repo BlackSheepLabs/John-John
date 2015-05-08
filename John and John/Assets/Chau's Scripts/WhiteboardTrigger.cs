@@ -15,6 +15,9 @@ public class WhiteboardTrigger : MonoBehaviour {
 
 	public GUISkin custSkin;
 
+	public GameObject characterSwap;
+	
+
 	// Use this for initialization
 	void Start () {
 		whiteboardState = boardState.OFF;
@@ -29,6 +32,7 @@ public class WhiteboardTrigger : MonoBehaviour {
 		Debug.Log("Entered Trigger");
 		if (other.tag == "Player") {
 			whiteboardState = boardState.ON;
+			characterSwap.SetActive(false);
 		}
 		
 	}
@@ -36,6 +40,7 @@ public class WhiteboardTrigger : MonoBehaviour {
 	void OnTriggerExit(Collider other) {
 		if (other.CompareTag("Player")) {
 			whiteboardState = boardState.OFF;
+			characterSwap.SetActive (true);
 		}
 	}
 

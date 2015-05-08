@@ -44,10 +44,10 @@ public class vp_SimpleHUD : MonoBehaviour
 	public Color HealthColor = Color.white;
 	public float HealthLowLevel = 2.5f;
 	public Color HealthLowColor = new Color(0.75f, 0, 0, 1);
-	public AudioClip HealthLowSound = null;
-	public float HealthLowSoundInterval = 1.0f;
+	//public AudioClip HealthLowSound = null;
+	//public float HealthLowSoundInterval = 1.0f;
 	protected float m_FormattedHealth = 0.0f;
-	protected float m_NextAllowedPlayHealthLowSoundTime = 0.0f;
+	//protected float m_NextAllowedPlayHealthLowSoundTime = 0.0f;
 	protected float m_HealthWidth { get { return ((HealthStyle.CalcSize(new GUIContent(FormattedHealth)).x)); } }
 	protected AudioSource m_Audio = null;
 
@@ -213,12 +213,12 @@ public class vp_SimpleHUD : MonoBehaviour
 		else if ((m_Player.Health.Get() < HealthLowLevel))
 		{
 			HealthColor = Color.Lerp(Color.white, HealthLowColor, (vp_MathUtility.Sinus(6.0f, 0.1f, 0.0f) * 5) + 0.5f);
-			if ((HealthLowSound != null) && (Time.time >= m_NextAllowedPlayHealthLowSoundTime))
-			{
-				m_NextAllowedPlayHealthLowSoundTime = Time.time + HealthLowSoundInterval;
-				m_Audio.pitch = 1.0f;
-				m_Audio.PlayOneShot(HealthLowSound);
-			}
+			//if ((HealthLowSound != null) && (Time.time >= m_NextAllowedPlayHealthLowSoundTime))
+			//{
+			//	m_NextAllowedPlayHealthLowSoundTime = Time.time + HealthLowSoundInterval;
+			//	m_Audio.pitch = 1.0f;
+			//	m_Audio.PlayOneShot(HealthLowSound);
+			//}
 		}
 		else
 			HealthColor = Color.white;	// health is not low, draw it normally
@@ -242,9 +242,9 @@ public class vp_SimpleHUD : MonoBehaviour
 		if (!ShowHUD)
 			return;
 		
-		DrawHealth();
+		//DrawHealth();
 
-		DrawAmmo();
+		//DrawAmmo();
 
 		DrawText();
 
