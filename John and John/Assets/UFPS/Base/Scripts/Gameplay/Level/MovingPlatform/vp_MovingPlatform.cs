@@ -586,14 +586,18 @@ public class vp_MovingPlatform : MonoBehaviour
 	/// </summary>
 	protected void OnTriggerEnter(Collider col)
 	{
+		if(col.transform.tag == "MainCube"){
+			TrySnapCubeToTop(col.gameObject);
+		}
 
 		if(!GetPlayer(col))
 			return;
 
 		TryPushPlayer();
 
-		TryAutoStart();		
-		
+		TryAutoStart();	
+
+
 
 	}
 
@@ -603,6 +607,8 @@ public class vp_MovingPlatform : MonoBehaviour
 	/// </summary>
 	protected void OnTriggerStay(Collider col)
 	{
+		if(col.transform.tag == "MainCube")
+			TrySnapCubeToTop(col.gameObject);
 
 		if (!PhysicsSnapPlayerToTopOnIntersect)
 			return;
@@ -611,7 +617,44 @@ public class vp_MovingPlatform : MonoBehaviour
 			return;
 
 		TrySnapPlayerToTop();
+
+
 			
+	}
+
+	protected void TrySnapCubeToTop(GameObject PCube)
+	{
+		if (PCube == null)
+			return;
+		PCube.transform.parent = this.gameObject.transform;
+
+		// don't snap a player that is already on top of the platform
+		if (PCube.transform.position.y > m_Collider.bounds.max.y)
+			return;
+
+		
+		// only snap to top if platform moves in such a way that the top
+		// will remain level
+		if (RotationSpeed.x != 0.0f || RotationSpeed.z != 0.0f ||
+		    m_CurrentTargetAngle.x != 0.0f || m_CurrentTargetAngle.z != 0.0f)
+			return;
+		
+		// only snap if the player bounding box is horizontally and fully
+		// encapsulated by the platform bounding box
+		Collider cubeCol = PCube.gameObject.collider;
+		if ((m_Collider.bounds.max.x < cubeCol.bounds.max.x) ||
+		    (m_Collider.bounds.max.z < cubeCol.bounds.max.z) ||
+		    (m_Collider.bounds.min.x > cubeCol.bounds.min.x) ||
+		    (m_Collider.bounds.min.z > cubeCol.bounds.min.z))
+			return;
+		
+		// approved! snap to top
+		Vector3 newPos = PCube.transform.position;
+		newPos.y = m_Collider.bounds.max.y - 0.1f;
+		PCube.transform.position.Set(newPos.x, newPos.y, newPos.z);
+		
+		// TIP: instead of snapping players to top here, this would also
+		// be a great place to gib 'em!
 	}
 
 

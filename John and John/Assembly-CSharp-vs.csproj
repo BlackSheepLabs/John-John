@@ -58,7 +58,6 @@
      <Compile Include="Assets\Alex&apos;s Scripts\GoToNextLvl.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\GravWell.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\Move.cs" />
-     <Compile Include="Assets\Alex&apos;s Scripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\PowerCube.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\RisingStairs.cs" />
      <Compile Include="Assets\Alex&apos;s Scripts\StateSystem.cs" />

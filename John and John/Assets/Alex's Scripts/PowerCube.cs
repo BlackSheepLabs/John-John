@@ -58,8 +58,9 @@ public class PowerCube : Trigger {
 		bool powered = false;
 
 
-		foreach(PowerCube p in adjCubes)
+		foreach(PowerCube p in adjCubes){
 			if(p.IsActive && p.containsMain) powered = true;
+		}
 
 		if(powered && !IsActive)
 			Activate ();
@@ -92,11 +93,12 @@ public class PowerCube : Trigger {
 	void OnTriggerEnter(Collider other)
 	{
 		PowerCube pC = other.GetComponent<PowerCube>();
+
 		if(pC != null && pC != this)
 		{
 			adjCubes.Add (pC);
 
-			if(pC.tag == "MainCube"){
+			if(pC.tag == "MainCube" || this.tag == "MainCube"){
 				containsMain = true;
 				foreach(PowerCube p in adjCubes)
 					p.CheckSources();
