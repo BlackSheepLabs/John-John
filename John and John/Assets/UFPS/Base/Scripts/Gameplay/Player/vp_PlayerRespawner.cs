@@ -84,6 +84,9 @@ public class vp_PlayerRespawner : vp_Respawner
 		if (Player == null)
 			return;
 
+		//if(IsClone)
+		//	Player.GetComponent<CharacterSwap>().Swap();
+
 		IsClone = false;
 
 		if (ClonePlacement == null)
@@ -102,22 +105,34 @@ public class vp_PlayerRespawner : vp_Respawner
 				foreach (Transform obj in ListofObjs.transform) {
 
 					//Reinstantiate Crumbling Platforms under the object
-					if (obj.Find ("GlassPane_Plane_Material.004").gameObject.GetComponent<TransparentCrumblingFloors> () != null) {
-						TransparentCrumblingFloors platform = obj.Find ("GlassPane_Plane_Material.004").gameObject.GetComponent<TransparentCrumblingFloors> ();
-						platform.renderer.enabled = true;
-						platform.collider.enabled = true;
-						platform.transform.parent.Find ("Edges_Cylinder_Material.005").transform.renderer.enabled = true;
-						platform.transform.parent.Find ("Sphere_Sphere_Material.006").transform.renderer.enabled = true;
-						platform.transform.parent.collider.enabled = true;
-						platform.timer = platform.GetTimerMax ();
-						platform.respawnTimer = platform.GetRespawnTimerMax ();
+					if(obj.tag == "Platform"){
+							TransparentCrumblingFloors platform = obj.Find ("GlassPane_Plane_Material.004").gameObject.GetComponent<TransparentCrumblingFloors> ();
+							platform.renderer.enabled = true;
+							platform.collider.enabled = true;
+							platform.transform.parent.Find ("Edges_Cylinder_Material.005").transform.renderer.enabled = true;
+							platform.transform.parent.Find ("Sphere_Sphere_Material.006").transform.renderer.enabled = true;
+							platform.transform.parent.collider.enabled = true;
+							platform.timer = platform.GetTimerMax ();
+							platform.respawnTimer = platform.GetRespawnTimerMax ();
 					}
 
-					else if(obj.gameObject.GetComponent<PowerCube>() != null)
+					else if(obj.tag == "MainCube") //if(obj.Find("PowerCube Main").gameObject.GetComponent<PowerCube>() != null)
 					{
 						PowerCube p = obj.gameObject.GetComponent<PowerCube>();
-						obj.transform.position = p.getInitialPosition();
+						p.Reset();
 
+					}
+
+					else if(ListofObjs.tag == "Poison"){
+						ListofObjs.GetComponent<PoisonFog>().canKill = 1;
+							
+					}
+
+					else if(ListofObjs.tag == "Bullets"){
+						var bulletList = GameObject.FindGameObjectsWithTag("bullet");
+						foreach(GameObject b in bulletList){
+							b.GetComponent<projectileScript>().canKill = 1;
+						}
 					}
 
 				}

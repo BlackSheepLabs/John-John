@@ -1,7 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
 //
 //	vp_FPPlayerDamageHandler.cs
-//	© VisionPunk. All Rights Reserved.
+//	Â© VisionPunk. All Rights Reserved.
 //	https://twitter.com/VisionPunk
 //	http://www.visionpunk.com
 //
@@ -175,6 +175,16 @@ public class vp_FPPlayerDamageHandler : vp_PlayerDamageHandler
 
 		FPPlayer.InputAllowGameplay.Set(false);
 
+	}
+
+	/// <summary>
+	/// This is a die hack because I hate everything.
+	/// </summary>
+	public void BaseDie()
+	{
+		
+		base.Die();
+		
 	}
 
 

@@ -49,6 +49,7 @@ public class vp_Grab : vp_Interactable
 	protected Vector3 m_CurrentHoldAngle = Vector3.one;
 	protected Collider m_LastExternalCollider = null;
 	protected int m_CollisionCount = 0;
+	protected Transform m_Parent = null;
 
 	// variables for grabbing logic
 	public Vector3 CarryingOffset = new Vector3(0.0f, -0.5f, 1.5f);	// determines how the object is carried in relation to our body
@@ -73,6 +74,9 @@ public class vp_Grab : vp_Interactable
 	public List<AudioClip> GrabSounds = new List<AudioClip>(); // list of sounds to randomly play on grab
 	public List<AudioClip> DropSounds = new List<AudioClip>(); // list of sounds to randomly play on drop
 	public List<AudioClip> ThrowSounds = new List<AudioClip>(); // list of sounds to randomly play on throw
+
+	public bool IsGrabbed {get {return m_IsGrabbed ;}}
+	public Transform transform {get {return m_Transform ;}}
 
 	// timers
 	protected vp_Timer.Handle m_DisableAngleSwayTimer = new vp_Timer.Handle();
@@ -99,6 +103,8 @@ public class vp_Grab : vp_Interactable
 
 		// for normal interaction type
 		InteractType = vp_InteractType.Normal;
+
+		m_Parent = m_Transform.parent;
 
 		m_InteractManager = GameObject.FindObjectOfType(typeof(vp_FPInteractManager)) as vp_FPInteractManager;
 
@@ -278,7 +284,7 @@ public class vp_Grab : vp_Interactable
 		if (m_Player == null)
 			m_Player = player;
 
-		if (player == null)
+		if (m_Player == null)
 			return false;
 
 		if (m_Controller == null)
@@ -464,6 +470,8 @@ public class vp_Grab : vp_Interactable
 		//Shrink the cube so you can actually see
 		gameObject.transform.localScale = new Vector3 
 			(transform.localScale.x * 2, transform.localScale.y * 2, transform.localScale.z * 2);
+
+		m_Transform.parent = m_Parent;
 	}
 
 	
