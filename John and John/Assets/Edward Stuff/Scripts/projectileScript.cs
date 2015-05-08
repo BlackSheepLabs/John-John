@@ -80,19 +80,11 @@ public class projectileScript : MonoBehaviour
 				C.gameObject.GetComponent<vp_FPPlayerDamageHandler>().Die();
 				C.gameObject.GetComponent<vp_PlayerRespawner>().Die();
 			}
-<<<<<<< HEAD
 			//Application.LoadLevel(Application.loadedLevel);
 		} else {
 			Debug.Log("YO");
 			DestroyObject(gameObject);
-=======
->>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
 		}
 		
 	}
-
-<<<<<<< HEAD
-=======
-	
->>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
 }
