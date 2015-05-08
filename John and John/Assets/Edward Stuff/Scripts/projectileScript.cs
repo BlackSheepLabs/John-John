@@ -48,8 +48,10 @@ public class projectileScript : MonoBehaviour
 		
 		if (muzzleVelocity == Vector3.zero)
 			return;
-		else
+		else {
+			//rigidbody.velocity = muzzleVelocity;
 			transform.position += muzzleVelocity * Time.deltaTime;
+		}
 		transform.LookAt(transform.position + muzzleVelocity.normalized);
 		Debug.DrawLine(transform.position, transform.position + muzzleVelocity.normalized, Color.red);
 
@@ -78,9 +80,19 @@ public class projectileScript : MonoBehaviour
 				C.gameObject.GetComponent<vp_FPPlayerDamageHandler>().Die();
 				C.gameObject.GetComponent<vp_PlayerRespawner>().Die();
 			}
+<<<<<<< HEAD
+			//Application.LoadLevel(Application.loadedLevel);
+		} else {
+			Debug.Log("YO");
+			DestroyObject(gameObject);
+=======
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
 		}
 		
 	}
 
+<<<<<<< HEAD
+=======
 	
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
 }
