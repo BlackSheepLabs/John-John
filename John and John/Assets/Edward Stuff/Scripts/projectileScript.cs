@@ -84,15 +84,10 @@ public class projectileScript : MonoBehaviour
 		} else {
 			Debug.Log("YO");
 			DestroyObject(gameObject);
-<<<<<<< HEAD
-		}
-		
-	}
-=======
 
 		}
 		
 	}
 
->>>>>>> c504b80ad1f8108635a3a24490d58c6eaf61e1ea
 }
+		
