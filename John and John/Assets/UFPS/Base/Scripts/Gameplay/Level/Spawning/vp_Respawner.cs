@@ -156,7 +156,7 @@ public class vp_Respawner : MonoBehaviour
 	/// <summary>
 	/// event target, typically sent by vp_DamageHandler or vp_ItemPickup
 	/// </summary>
-	protected virtual void Die()
+	public virtual void Die()
 	{
 		vp_Timer.In(UnityEngine.Random.Range(MinRespawnTime, MaxRespawnTime), PickSpawnPoint, m_RespawnTimer);
 	}

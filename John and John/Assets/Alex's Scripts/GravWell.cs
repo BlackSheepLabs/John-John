@@ -8,6 +8,8 @@ public class GravWell : Trigger {
 
 	public Vector3 gravVector = Vector3.up;
 
+	public ParticleSystem gravEffect;
+
     private List<Collider> cols;
 
 	// Use this for initialization
@@ -23,6 +25,9 @@ public class GravWell : Trigger {
 
 //		gravField.isTrigger = true; 
         cols = new List<Collider>();
+
+		if(currentState == State.Activated) gravEffect.Play();
+		else gravEffect.Stop();
 
         triggerType = TriggerType.NonInteractive;
 	}
@@ -62,6 +67,16 @@ public class GravWell : Trigger {
             }
         }
         }
+	}
+
+	public override void OnActivated()
+	{
+		gravEffect.Play();
+	}
+
+	public override void OnDeactivate()
+	{
+		gravEffect.Stop();
 	}
 
 	void OnTriggerEnter(Collider other)
