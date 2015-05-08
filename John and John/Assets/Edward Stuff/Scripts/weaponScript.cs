@@ -35,7 +35,7 @@ public class weaponScript : MonoBehaviour
 		if (Time.time > fireTimer)
 		{
 			GameObject projectile;
-			Vector3 muzzlevelocity = transform.forward;
+			Vector3 muzzlevelocity = transform.up;
 			
 			if (Inaccuracy != 0)
 			{
@@ -45,7 +45,7 @@ public class weaponScript : MonoBehaviour
 			
 			muzzlevelocity = muzzlevelocity.normalized * projMuzzleVelocity;
 			
-			projectile = Instantiate(projPrefab, transform.position, transform.rotation) as GameObject;
+			projectile = Instantiate(projPrefab, transform.position + muzzlevelocity.normalized / 2, transform.rotation) as GameObject;
 			projectile.GetComponent<projectileScript>().muzzleVelocity = muzzlevelocity;
 			fireTimer = Time.time + RateOfFire;
 		}

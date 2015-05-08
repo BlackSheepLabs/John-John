@@ -600,10 +600,36 @@
      <None Include="Assets\UFPS\Base\Content\Art\Body\Materials\InvisibleShadowCaster.shader" />
      <None Include="Assets\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+ <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="Assembly-UnityScript">
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0291bba4d15d6985498a587ec471b0a22d62e457
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+<<<<<<< HEAD
+=======
+>>>>>>> 4ea108c73e76170032117f886463aa798124a4c5
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
+>>>>>>> 0291bba4d15d6985498a587ec471b0a22d62e457
+>>>>>>> origin/master
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
@@ -612,7 +638,17 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+ <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
  </Reference>
  <Reference Include="SixBySeven">
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
@@ -630,7 +666,39 @@
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/uSequencerRuntime.dll</HintPath>
  </Reference>
  <Reference Include="uSequencerEditor">
+<<<<<<< HEAD
+ <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/Editor/uSequencerEditor.dll</HintPath>
+=======
  <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/Editor/uSequencerEditor.dll</HintPath>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0291bba4d15d6985498a587ec471b0a22d62e457
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ </Reference>
+ <Reference Include="SixBySeven">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
+ </Reference>
+ <Reference Include="ProBuilderEditor">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/6by9/ProBuilder/Editor/ProBuilderEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="SharedEditor">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/WellFired/shared/Compiled/Editor/SharedEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="SharedRuntime">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/WellFired/shared/Compiled/Runtime/SharedRuntime.dll</HintPath>
+ </Reference>
+ <Reference Include="uSequencerRuntime">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/uSequencerRuntime.dll</HintPath>
+ </Reference>
+ <Reference Include="uSequencerEditor">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/Editor/uSequencerEditor.dll</HintPath>
+<<<<<<< HEAD
+=======
+>>>>>>> 4ea108c73e76170032117f886463aa798124a4c5
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
+>>>>>>> 0291bba4d15d6985498a587ec471b0a22d62e457
+>>>>>>> origin/master
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>

@@ -104,7 +104,7 @@ public class StepOnSwitch : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other) {
-		if (other.tag == "Player" || other.tag == "Cube") {
+		if (other.tag == "Player" || other.tag == "Cube" || other.tag == "Clone") {
 			objectCount--;
 			if (swapped == false && objectCount == 0) {
 				switchState = SwitchState.OFF;
