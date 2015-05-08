@@ -31,12 +31,12 @@ public class CharacterSwap : MonoBehaviour {
 		player.transform.position = clone.transform.position;
 		clone.transform.position = tempPosition;
 
-	//	var cam = FindObjectOfType<vp_FPCamera>();
+		var cam = FindObjectOfType<vp_FPCamera>();
 
 		var tempAngles = cloneEulerAngles;
 		tempRotation = player.transform.rotation;
-	//	cloneEulerAngles = cam.transform.eulerAngles;
-	//	FindObjectOfType<vp_FPCamera>().SetRotation (tempAngles);
+		cloneEulerAngles = cam.transform.eulerAngles;
+		FindObjectOfType<vp_FPCamera>().SetRotation (tempAngles);
 		clone.transform.rotation = tempRotation;
 
 	}

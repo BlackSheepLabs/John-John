@@ -113,6 +113,13 @@ public class vp_PlayerRespawner : vp_Respawner
 						platform.respawnTimer = platform.GetRespawnTimerMax ();
 					}
 
+					else if(obj.gameObject.GetComponent<PowerCube>() != null)
+					{
+						PowerCube p = obj.gameObject.GetComponent<PowerCube>();
+						obj.transform.position = p.getInitialPosition();
+
+					}
+
 				}
 			}
 		}

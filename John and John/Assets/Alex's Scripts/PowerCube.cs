@@ -11,6 +11,7 @@ public class PowerCube : Trigger {
 	{get {return this.currentState == State.Activated;} }
 
 	private bool containsMain = false;
+	private Vector3 startPosition;
 
 	// Use this for initialization
 	void Awake () {
@@ -18,6 +19,7 @@ public class PowerCube : Trigger {
 		responseObject = null;
 		adjCubes = new List<PowerCube>();
 		duration = 1.0f;
+		startPosition = gameObject.transform.position;
 		if(IsAlwaysActive)
 		{
 			this.currentState = State.Activated;
@@ -31,6 +33,10 @@ public class PowerCube : Trigger {
 			this.Toggleable = true;
 			duration = 1.0f;
 		}
+	}
+
+	public Vector3 getInitialPosition(){
+		return startPosition;
 	}
 
 	public void CheckSources()
