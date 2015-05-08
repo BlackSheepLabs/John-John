@@ -13,7 +13,7 @@ public class GravWell : Trigger {
     private List<Collider> cols;
 
 	// Use this for initialization
-	void Start () {
+	public override void Start () {
 /*		if(gravField == null)
 		{
 			GameObject g = new GameObject();
