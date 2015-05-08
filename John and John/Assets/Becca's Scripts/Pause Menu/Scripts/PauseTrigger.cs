@@ -13,6 +13,8 @@ public class PauseTrigger : MonoBehaviour {
 
 	public GameObject player;
 
+	public GameObject cursor;
+
 	Vector2 oldVec;
 	Vector2 newVec;
 	
@@ -47,6 +49,7 @@ public class PauseTrigger : MonoBehaviour {
 				//cameraML.enabled = false;
 				playerML.MouseCursorForced = true;
 				PauseGUI.SetActive(true);
+				cursor.SetActive(true);
 				
 			}
 			else 
@@ -62,6 +65,7 @@ public class PauseTrigger : MonoBehaviour {
 					//cameraML.enabled = true;
 					PauseGUI.SetActive(false);
 					SaveLevel.SetActive(false);
+					cursor.SetActive(false);
 					Time.timeScale = 1;
 				}
 			}

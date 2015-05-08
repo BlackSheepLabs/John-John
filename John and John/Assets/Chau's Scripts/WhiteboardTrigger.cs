@@ -32,6 +32,7 @@ public class WhiteboardTrigger : MonoBehaviour {
 		Debug.Log("Entered Trigger");
 		if (other.tag == "Player") {
 			whiteboardState = boardState.ON;
+			characterSwap.GetComponent<SwitchTimer>().enabled = false;
 			characterSwap.SetActive(false);
 		}
 		
@@ -41,6 +42,7 @@ public class WhiteboardTrigger : MonoBehaviour {
 		if (other.CompareTag("Player")) {
 			whiteboardState = boardState.OFF;
 			characterSwap.SetActive (true);
+			characterSwap.GetComponent<SwitchTimer>().enabled = true;
 		}
 	}
 

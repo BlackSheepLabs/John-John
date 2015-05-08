@@ -3,12 +3,12 @@ using System.Collections;
 
 public class SwitchTimer : MonoBehaviour {
 	
-	// Declare needed variables
 	private Vector3 tempPosition;
 	private Quaternion tempRotation;
 	private Vector3 cloneEulerAngles; // added to avoid rotating the clone oddly
 	public GameObject player;
 	public GameObject clone;
+	protected GameObject lastObj = null;
 
 	public float SwitchTime;
 
@@ -47,7 +47,7 @@ public class SwitchTimer : MonoBehaviour {
 		countdown = (int)((SwitchTime + 1) - seconds);
 
 		//print to GUI
-		if (countdown == 0) {
+		if (countdown <= 0) {
 			Swap ();
 			startTime = Time.time;
 		}
@@ -57,6 +57,21 @@ public class SwitchTimer : MonoBehaviour {
 
 	private void Swap() {
 
+		var moveObjs = FindObjectsOfType<vp_Grab>();
+		GameObject heldObj = null;
+		
+		foreach(vp_Grab g in moveObjs)
+		{
+			if(g.IsGrabbed)
+			{
+				g.transform.rigidbody.isKinematic = true;
+				g.transform.collider.enabled = false;
+				g.TryInteract (null);
+				heldObj = g.transform.gameObject;
+				break;
+			}
+		}
+		
 		tempPosition = player.transform.position;
 		player.transform.position = clone.transform.position;
 		clone.transform.position = tempPosition;
@@ -67,7 +82,19 @@ public class SwitchTimer : MonoBehaviour {
 		tempRotation = player.transform.rotation;
 		cloneEulerAngles = cam.transform.eulerAngles;
 		FindObjectOfType<vp_FPCamera>().SetRotation (tempAngles);
+		//FindObjectOfType<vp_FPController>().
 		clone.transform.rotation = tempRotation;
+		
+		if(lastObj != null)
+		{
+			lastObj.GetComponent<vp_Grab>().TryInteract(FindObjectOfType<vp_FPPlayerEventHandler>());
+			lastObj.rigidbody.isKinematic = false;
+			lastObj.collider.enabled = true;
+		}
+		
+		lastObj = heldObj;
+		
+	
 		source.Play();
 	}
 }
