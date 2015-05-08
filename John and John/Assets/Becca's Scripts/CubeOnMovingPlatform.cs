@@ -15,9 +15,10 @@ public class CubeOnMovingPlatform : MonoBehaviour {
 	
 	void OnTriggerStay(Collider t /* moving platform */)
     {
-       // Debug.Log("On trigger enter in " + gameObject.name);
-        if (t.gameObject.tag == "Platform")
+        Debug.Log("On trigger enter in " + gameObject.name);
+        if (t.gameObject.tag == "Platform" && this.gameObject.tag == "MainCube")
         {
+			Debug.Log("Parented");
             gameObject.transform.parent = t.gameObject.transform;
         }
     }
@@ -25,7 +26,7 @@ public class CubeOnMovingPlatform : MonoBehaviour {
     void OnTriggerExit(Collider t)
     {
        // Debug.Log("On trigger exit in " + gameObject.name);
-        if (t.gameObject.tag == "Platform")
+		if (t.gameObject.tag == "Platform" && this.gameObject.tag == "MainCube")
         {
             gameObject.transform.parent = null;
         //    Debug.Log("Unparented");
