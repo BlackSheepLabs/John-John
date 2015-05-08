@@ -12,6 +12,8 @@ public class PowerCube : Trigger {
 
 	private bool containsMain = false;
 	private Vector3 startPosition;
+	private Quaternion startRotation;
+
 
 	// Use this for initialization
 	void Awake () {
@@ -19,7 +21,8 @@ public class PowerCube : Trigger {
 		responseObject = null;
 		adjCubes = new List<PowerCube>();
 		duration = 1.0f;
-		startPosition = gameObject.transform.position;
+		startPosition = this.transform.localPosition;
+		startRotation = this.transform.localRotation;
 		if(IsAlwaysActive)
 		{
 			this.currentState = State.Activated;
@@ -35,8 +38,19 @@ public class PowerCube : Trigger {
 		}
 	}
 
+
+
 	public Vector3 getInitialPosition(){
 		return startPosition;
+	}
+
+	public Quaternion getInitialRotation(){
+		return startRotation;
+	}
+
+	public void Reset(){
+		this.transform.localPosition = getInitialPosition();;
+
 	}
 
 	public void CheckSources()

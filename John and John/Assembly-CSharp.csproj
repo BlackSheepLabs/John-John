@@ -166,6 +166,7 @@
      <Compile Include="Assets\Robert&apos;s Stuff\MovingPlatform_Perpetual.cs" />
      <Compile Include="Assets\Robert&apos;s Stuff\NextLevelCollider.cs" />
      <Compile Include="Assets\Scripts\DeactivateBulletsOnTrigger.cs" />
+     <Compile Include="Assets\Scripts\PoisonFog.cs" />
      <Compile Include="Assets\Scripts\RaiseStairsOnActivate.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Attributes\vp_FloatFieldAttribute.cs" />
      <Compile Include="Assets\UFPS\Base\Scripts\Core\Attributes\vp_HelpBoxAttribute.cs" />
@@ -802,16 +803,37 @@
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
+<<<<<<< HEAD
  <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+=======
+<<<<<<< HEAD
+ <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
  </Reference>
  <Reference Include="SixBySeven">
- <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
+ <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
  <Reference Include="SharedRuntime">
- <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/WellFired/shared/Compiled/Runtime/SharedRuntime.dll</HintPath>
+ <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/WellFired/shared/Compiled/Runtime/SharedRuntime.dll</HintPath>
  </Reference>
  <Reference Include="uSequencerRuntime">
+<<<<<<< HEAD
  <HintPath>C:/Users/jww7675/Documents/TheRealJohnAndJohn/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/uSequencerRuntime.dll</HintPath>
+=======
+ <HintPath>C:/Users/ebw3559/Documents/GitHub/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/uSequencerRuntime.dll</HintPath>
+=======
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/6by9/ProBuilder/Classes/ProBuilderCore.dll</HintPath>
+ </Reference>
+ <Reference Include="SixBySeven">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/6by9/Shared/Code/SixBySeven.dll</HintPath>
+ </Reference>
+ <Reference Include="SharedRuntime">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/WellFired/shared/Compiled/Runtime/SharedRuntime.dll</HintPath>
+ </Reference>
+ <Reference Include="uSequencerRuntime">
+ <HintPath>C:/Users/rab6597/Documents/GitHub/John-John/John and John/Assets/WellFired/uSequencer/Sequencer/uSequencerRuntime.dll</HintPath>
+>>>>>>> 4ea108c73e76170032117f886463aa798124a4c5
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
  </Reference>
   </ItemGroup>
   <ItemGroup>

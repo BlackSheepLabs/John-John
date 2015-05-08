@@ -21,6 +21,7 @@ public class projectileScript : MonoBehaviour
 	public AudioSource deathSound;
 	
 	private GameObject[] PlayerList;
+	public int canKill = 0;
 	// Use this for initialization
 	void Start () 
 	{
@@ -53,6 +54,13 @@ public class projectileScript : MonoBehaviour
 		}
 		transform.LookAt(transform.position + muzzleVelocity.normalized);
 		Debug.DrawLine(transform.position, transform.position + muzzleVelocity.normalized, Color.red);
+
+		if(canKill > 0)
+		{
+			canKill -= 1;
+			
+		}
+
 	}
 	
 	void projectileTimeout()
@@ -61,21 +69,30 @@ public class projectileScript : MonoBehaviour
 	}
 	
 	void OnTriggerEnter(Collider C){
-		if(C.tag == "Player"){
-			DestroyObject(gameObject);
-			deathSound.enabled = true;
-			deathSound.Play();
-			foreach (GameObject Player in PlayerList) 
+		if(canKill <= 0) {
+			if(C.tag == "Player")
 			{
+				DestroyObject(gameObject);
+				deathSound.enabled = true;
+				deathSound.Play();
+				
 				Debug.Log("You Dead Son");
-				Player.SendMessage("Die", SendMessageOptions.DontRequireReceiver);
+				C.gameObject.GetComponent<vp_FPPlayerDamageHandler>().Die();
+				C.gameObject.GetComponent<vp_PlayerRespawner>().Die();
 			}
+<<<<<<< HEAD
 			//Application.LoadLevel(Application.loadedLevel);
 		} else {
 			Debug.Log("YO");
 			DestroyObject(gameObject);
+=======
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
 		}
 		
 	}
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> c1a263c196bf38a0a623e6be8636377e42ee5720
 }
