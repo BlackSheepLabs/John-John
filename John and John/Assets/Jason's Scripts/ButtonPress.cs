@@ -28,7 +28,7 @@ public class ButtonPress : MonoBehaviour {
 	private RaycastHit hitInfo;
 
 	//Rect backBox = new Rect(Screen.width/2 - 75 ,Screen.height/2 - 12, 150, 25);
-	Rect backBox = new Rect(Screen.width/3 ,Screen.height/2 - 12, 215, 35);
+	Rect backBox = new Rect(Screen.width/2 - 75 ,Screen.height/4 - 35, 215, 35);
 	public string displayText;
 	bool pointedAt;
 	public GUISkin custSkin;
