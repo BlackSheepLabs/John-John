@@ -119,7 +119,7 @@ public class Trigger : MonoBehaviour {
 				{
 					currentState = State.Deactivated;
 					OnDeactivated ();
-					if(source != null && source.isPlaying/* && source.loop*/) source.Stop();
+					if(source != null && source.isPlaying && source.loop) source.Stop();
 					foreach(Trigger t in responseTriggers) t.Deactivate();
 				}
 				else
