@@ -90,7 +90,7 @@ public class CrumblingFloors : MonoBehaviour {
 		}
 
 		if (timer <= 0) {
-			audio.PlayOneShot(snapSound,1);
+			//audio.PlayOneShot(snapSound,1);
 			renderer.enabled = false;
 			collider.enabled = false;
 			crumbleState = CrumbleState.SAFE;

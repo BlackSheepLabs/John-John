@@ -101,12 +101,13 @@ public class TransparentCrumblingFloors : MonoBehaviour {
 		} */
 
 		if (timer <= 0) {
-			audio.PlayOneShot(snapSound,1);
+			//audio.PlayOneShot(snapSound,1);
 			renderer.enabled = false;
 			collider.enabled = false;
 			gameObject.transform.collider.enabled = false;
 			//Disable sibling renderers
 			transform.parent.Find("Edges_Cylinder_Material.005").transform.renderer.enabled = false;
+			Debug.Log(transform.parent.Find("Edges_Cylinder_Material.005").name);
 			transform.parent.Find("Sphere_Sphere_Material.006").transform.renderer.enabled = false;
 
 			transform.parent.collider.enabled = false;
